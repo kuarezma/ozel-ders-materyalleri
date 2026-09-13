@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7. Sınıf Tam Sayılarla İşlemler — 50 Klasik Soru Fasikülü (Bölünmeyen Baskı Tasarımı)</title>
+  <title>7. Sınıf Tam Sayılarla İşlemler — 50 Klasik Soru Fasikülü (Baskıya Hazır)</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=JetBrains+Mono:wght@600;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -72,7 +72,7 @@
       gap: 25px;
     }
 
-    /* A4 Sayfası - Kesin ve Katı Sayfa Bölünme Koruması */
+    /* A4 Sayfası - Kesin Sayfa Bölünme Koruması */
     .a4-page {
       background: white;
       width: 100%;
@@ -204,17 +204,49 @@
       line-height: 1.4;
     }
 
+    .q-list {
+      margin: 6px 0 6px 20px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .q-list li {
+      margin-bottom: 3px;
+    }
+
     .math-box {
       font-family: 'JetBrains Mono', monospace;
       background: #f8fafc;
-      padding: 4px 10px;
+      padding: 5px 12px;
       border-radius: 6px;
       border-left: 3px solid #2563eb;
-      font-size: 13.5px;
+      font-size: 14px;
       color: #0f172a;
-      display: inline-block;
-      margin: 4px 0;
+      display: inline-flex;
+      align-items: center;
+      margin: 5px 0;
       font-weight: 700;
+    }
+
+    /* Matematiksel Kesir Dizgisi */
+    .frac {
+      display: inline-flex;
+      flex-direction: column;
+      vertical-align: middle;
+      text-align: center;
+      font-size: 0.95em;
+      padding: 0 4px;
+      line-height: 1.15;
+    }
+
+    .frac .top {
+      border-bottom: 1.5px solid currentColor;
+      padding-bottom: 2px;
+    }
+
+    .frac .bottom {
+      padding-top: 2px;
     }
 
     /* Genişletilmiş Noktalı İşlem Alanı */
@@ -384,7 +416,7 @@
       <button class="btn btn-outline" onclick="toggleSolutions()" id="modeBtn">👁️ Çözümleri ve Cevapları Göster</button>
     </div>
     <div style="font-weight: 800; font-size: 13.5px; color: #1e3a8a;">
-      50 KLASİK SORU FASİKÜLÜ (BÖLÜNMEYEN SAYFA DÜZENİ)
+      50 KLASİK SORU FASİKÜLÜ (BASKIYA HAZIR DİZGİ)
     </div>
     <div>
       <button class="btn btn-primary" onclick="window.print()">🖨️ Yazdır / PDF Kaydet</button>
@@ -461,7 +493,7 @@
         </div>
         <div class="solution-panel">
           <strong>Doğru Sonuç: 0</strong><br>
-          <span>Açıklama / Çözüm:  En küçük pozitif 2 basamaklı: +10, en büyük negatif 2 basamaklı: -10. Toplam: 10 + (-10) = 0</span>
+          <span>Açıklama / Çözüm: En küçük pozitif 2 basamaklı: +10, en büyük negatif 2 basamaklı: -10. Toplam: 10 + (-10) = 0</span>
         </div>
       </div>
       
@@ -485,7 +517,7 @@
           <span class="q-tag">Sayı Doğrusunda Modelleme</span>
         </div>
         <div class="q-body">
-          <p class="q-p">Sayı doğrusunda $-6$ noktasında bulunan bir karınca, önce 11 birim sağa, ardından bulunduğu noktadan 7 birim sola hareket ediyor.</p>
+          <p class="q-p">Sayı doğrusunda -6 noktasında bulunan bir karınca, önce 11 birim sağa, ardından bulunduğu noktadan 7 birim sola hareket ediyor.</p>
 <p class="q-p">Karıncanın son durduğu noktaya karşılık gelen tam sayıyı sayı doğrusu çizerek gösteriniz.</p>
         </div>
         <div class="work-grid-area">
@@ -505,9 +537,11 @@
         </div>
         <div class="q-body">
           <p class="q-p">Sayma pulları ile modellemede:</p>
-<p class="q-p">- $(+)$ pul: $+1$</p>
-<p class="q-p">- $(-)$ pul: $-1$</p>
-<p class="q-p">Bir kutunun içinde 7 adet $(-)$ pul varken bu kutuya 4 adet $(+)$ pul ekleniyor. Oluşan <strong>nötr çiftleri</strong> belirterek kutuda kalan son durumu ve matematiksel işlemini yazınız.</p>
+<ul class="q-list">
+<li>(+) pul: +1</li>
+<li>(-) pul: -1</li>
+</ul>
+<p class="q-p">Bir kutunun içinde 7 adet (-) pul varken bu kutuya 4 adet (+) pul ekleniyor. Oluşan <strong>nötr çiftleri</strong> belirterek kutuda kalan son durumu ve matematiksel işlemini yazınız.</p>
         </div>
         <div class="work-grid-area">
           <div class="work-label">İşlem ve Çözüm Adımları:</div>
@@ -526,7 +560,7 @@
         </div>
         <div class="q-body">
           <div class="math-box">[(-28) + (+14)] + A = 0</div>
-<p class="q-p">olduğuna göre, toplama işleminin <strong>ters eleman özelliğini</strong> kullanarak $A$ tam sayısını bulunuz.</p>
+<p class="q-p">olduğuna göre, toplama işleminin <strong>ters eleman özelliğini</strong> kullanarak A tam sayısını bulunuz.</p>
         </div>
         <div class="work-grid-area">
           <div class="work-label">İşlem ve Çözüm Adımları:</div>
@@ -534,7 +568,7 @@
         </div>
         <div class="solution-panel">
           <strong>Doğru Sonuç: +14</strong><br>
-          <span>Açıklama / Çözüm: [(-28) + (+14)] = -14. -14 + A = 0 \implies A = +14</span>
+          <span>Açıklama / Çözüm: [(-28) + (+14)] = -14. -14 + A = 0 ➔ A = +14</span>
         </div>
       </div>
 
@@ -577,7 +611,7 @@
           <span class="q-tag">Sıcaklık Değişimi Problemi</span>
         </div>
         <div class="q-body">
-          <p class="q-p">Erzurum'da gece ölçülen hava sıcaklığı $-13°C$'dir. Gündüz hava sıcaklığı geceye göre $9°C$ arttığına göre, Erzurum'da gündüz ölçülen hava sıcaklığı kaç $°C$'dir?</p>
+          <p class="q-p">Erzurum'da gece ölçülen hava sıcaklığı -13°C'dir. Gündüz hava sıcaklığı geceye göre 9°C arttığına göre, Erzurum'da gündüz ölçülen hava sıcaklığı kaç °C'dir?</p>
         </div>
         <div class="work-grid-area">
           <div class="work-label">İşlem ve Çözüm Adımları:</div>
@@ -585,7 +619,7 @@
         </div>
         <div class="solution-panel">
           <strong>Doğru Sonuç: -4 °C</strong><br>
-          <span>Açıklama / Çözüm: -13 + 9 = -4^\circ\text{C}</span>
+          <span>Açıklama / Çözüm: -13 + 9 = -4°C</span>
         </div>
       </div>
 
@@ -666,7 +700,7 @@
           <span class="q-tag">Sayma Pulları ile Çıkarma (Sıfır Çifti)</span>
         </div>
         <div class="q-body">
-          <p class="q-p">İçinde 5 adet $(+)$ pul bulunan bir kutudan 8 adet $(+)$ pul çıkarılmak isteniyor.</p>
+          <p class="q-p">İçinde 5 adet (+) pul bulunan bir kutudan 8 adet (+) pul çıkarılmak isteniyor.</p>
 <p class="q-p">Kutuya kaç tane <strong>sıfır çifti (+ -)</strong> eklenmesi gerektiğini açıklayarak işlemin sonucunu modelleyiniz.</p>
         </div>
         <div class="work-grid-area">
@@ -685,8 +719,8 @@
           <span class="q-tag">Harfli Çıkarma İşlemi</span>
         </div>
         <div class="q-body">
-          <p class="q-p">$a = -14$ ve $b = -9$ olduğuna göre,</p>
-<div class="math-box">a - b \quad \text{ve} \quad b - a</div>
+          <p class="q-p">a = -14 ve b = -9 olduğuna göre,</p>
+<p class="q-p">a - b ve b - a</p>
 <p class="q-p">ifadelerinin değerlerini ayrı ayrı hesaplayınız.</p>
         </div>
         <div class="work-grid-area">
@@ -724,7 +758,7 @@
           <span class="q-tag">Sayı Doğrusunda Uzaklık</span>
         </div>
         <div class="q-body">
-          <p class="q-p">Sayı doğrusunda $-17$ sayısının $+8$ sayısına olan <strong>uzaklığı</strong> kaç birimdir? (Çıkarma işlemi veya mutlak değer ile gösteriniz).</p>
+          <p class="q-p">Sayı doğrusunda -17 sayısının +8 sayısına olan <strong>uzaklığı</strong> kaç birimdir? (Çıkarma işlemi veya mutlak değer ile gösteriniz).</p>
         </div>
         <div class="work-grid-area">
           <div class="work-label">İşlem ve Çözüm Adımları:</div>
@@ -756,8 +790,8 @@
           <span class="q-tag">Sıcaklık Farkı Problemi</span>
         </div>
         <div class="q-body">
-          <p class="q-p">Bir dondurucunun iç sıcaklığı $-18°C$, oda sıcaklığı ise $+24°C$ olarak ölçülmüştür.</p>
-<p class="q-p">Oda sıcaklığı dondurucunun iç sıcaklığından <strong>kaç $°C$ daha fazladır?</strong></p>
+          <p class="q-p">Bir dondurucunun iç sıcaklığı -18°C, oda sıcaklığı ise +24°C olarak ölçülmüştür.</p>
+<p class="q-p">Oda sıcaklığı dondurucunun iç sıcaklığından <strong>kaç °C daha fazladır?</strong></p>
         </div>
         <div class="work-grid-area">
           <div class="work-label">İşlem ve Çözüm Adımları:</div>
@@ -765,7 +799,7 @@
         </div>
         <div class="solution-panel">
           <strong>Doğru Sonuç: 42 °C</strong><br>
-          <span>Açıklama / Çözüm: 24 - (-18) = 24 + 18 = 42^\circ\text{C}</span>
+          <span>Açıklama / Çözüm: 24 - (-18) = 24 + 18 = 42°C</span>
         </div>
       </div>
 
@@ -873,7 +907,7 @@
         </div>
         <div class="solution-panel">
           <strong>Doğru Sonuç: +990</strong><br>
-          <span>Açıklama / Çözüm:  En küçük negatif 2 basamaklı: -99, rakamları farklı en büyük negatif: -10. Çarpım: (-99) × (-10) = +990</span>
+          <span>Açıklama / Çözüm: En küçük negatif 2 basamaklı: -99, rakamları farklı en büyük negatif: -10. Çarpım: (-99) × (-10) = +990</span>
         </div>
       </div>
 
@@ -883,7 +917,7 @@
           <span class="q-tag">Cebirsel Değer Hesaplama</span>
         </div>
         <div class="q-body">
-          <p class="q-p">$x = -4$ ve $y = +6$ olduğuna göre,</p>
+          <p class="q-p">x = -4 ve y = +6 olduğuna göre,</p>
 <div class="math-box">3x · y - 2x</div>
 <p class="q-p">ifadesinin değerini bulunuz.</p>
         </div>
@@ -903,10 +937,12 @@
           <span class="q-tag">Çarpma Şeması ve Toplam</span>
         </div>
         <div class="q-body">
-          <p class="q-p">Aşağıdaki çarpma tablosunda verilmeyen $K, L, M$ değerlerini bulunuz:</p>
-<p class="q-p">- $K = (-6) \times (-7)$</p>
-<p class="q-p">- $L = (+8) \times (-9)$</p>
-<p class="q-p">- $M = K + L$</p>
+          <p class="q-p">Aşağıdaki çarpma tablosunda verilmeyen K, L, M değerlerini bulunuz:</p>
+<ul class="q-list">
+<li>K = (-6) × (-7)</li>
+<li>L = (+8) × (-9)</li>
+<li>M = K + L</li>
+</ul>
         </div>
         <div class="work-grid-area">
           <div class="work-label">İşlem ve Çözüm Adımları:</div>
@@ -938,11 +974,13 @@
           <span class="q-tag">İşaret Belirleme Mantığı</span>
         </div>
         <div class="q-body">
-          <p class="q-p">$a, b, c$ birer tam sayı olmak üzere:</p>
-<p class="q-p">- $a \cdot b > 0$</p>
-<p class="q-p">- $b \cdot c < 0$</p>
-<p class="q-p">- $a < 0$</p>
-<p class="q-p">olduğuna göre, $a, b$ ve $c$ sayılarının işaretlerini sırasıyla belirleyiniz.</p>
+          <p class="q-p">a, b, c birer tam sayı olmak üzere:</p>
+<ul class="q-list">
+<li>a · b > 0</li>
+<li>b · c < 0</li>
+<li>a < 0</li>
+</ul>
+<p class="q-p">olduğuna göre, a, b ve c sayılarının işaretlerini sırasıyla belirleyiniz.</p>
         </div>
         <div class="work-grid-area">
           <div class="work-label">İşlem ve Çözüm Adımları:</div>
@@ -950,7 +988,7 @@
         </div>
         <div class="solution-panel">
           <strong>Doğru Sonuç: a: (-), b: (-), c: (+)</strong><br>
-          <span>Açıklama / Çözüm: a < 0 \implies a = (-). a · b > 0 \implies b = (-). b · c < 0 \implies c = (+)</span>
+          <span>Açıklama / Çözüm: a < 0 ➔ a = (-). a · b > 0 ➔ b = (-). b · c < 0 ➔ c = (+)</span>
         </div>
       </div>
 
@@ -998,7 +1036,7 @@
           <span class="q-tag">Kesir Formatında Bölme</span>
         </div>
         <div class="q-body">
-          <div class="math-box">\frac{-72}{-6} + \frac{+45}{-9}</div>
+          <div class="math-box">(-72 / -6) + (+45 / -9)</div>
 <p class="q-p">işleminin sonucunu bulunuz.</p>
         </div>
         <div class="work-grid-area">
@@ -1031,7 +1069,7 @@
           <span class="q-tag">Sıfır ile Bölme & Tanımsızlık</span>
         </div>
         <div class="q-body">
-          <div class="math-box">A = \frac{0}{-8} \quad \text{ve} \quad B = \frac{-8}{0}</div>
+          <div class="math-box">A = (0 / -8) ve B = (-8 / 0)</div>
 <p class="q-p">ifadelerinin matematiksel sonuçlarını açıklayınız.</p>
         </div>
         <div class="work-grid-area">
@@ -1040,7 +1078,7 @@
         </div>
         <div class="solution-panel">
           <strong>Doğru Sonuç: A = 0, B = Tanımsız</strong><br>
-          <span>Açıklama / Çözüm:  Sıfırın sayıya bölümü sıfırdır (A=0), sayının sıfıra bölümü matematikte tanımsızdır (B=\text{Tanımsız}).</span>
+          <span>Açıklama / Çözüm: Sıfırın sayıya bölümü sıfırdır (A=0), sayının sıfıra bölümü matematikte tanımsızdır (B=Tanımsız).</span>
         </div>
       </div>
 
@@ -1069,7 +1107,7 @@
           <span class="q-tag">Ters İşlem Problemi</span>
         </div>
         <div class="q-body">
-          <p class="q-p">Bir tam sayı $-4$'e bölündüğünde sonuç $+18$ çıkmaktadır. Bu tam sayının $+6$'ya bölümü kaçtır?</p>
+          <p class="q-p">Bir tam sayı -4'e bölündüğünde sonuç +18 çıkmaktadır. Bu tam sayının +6'ya bölümü kaçtır?</p>
         </div>
         <div class="work-grid-area">
           <div class="work-label">İşlem ve Çözüm Adımları:</div>
@@ -1077,7 +1115,7 @@
         </div>
         <div class="solution-panel">
           <strong>Doğru Sonuç: -12</strong><br>
-          <span>Açıklama / Çözüm:  Sayı: 18 × (-4) = -72. -72 ÷ (+6) = -12</span>
+          <span>Açıklama / Çözüm: Sayı: 18 × (-4) = -72. -72 ÷ (+6) = -12</span>
         </div>
       </div>
 
@@ -1088,10 +1126,12 @@
         </div>
         <div class="q-body">
           <p class="q-p">Aşağıdaki ifadelerin değerlerini karşılarına yazınız:</p>
-<p class="q-p">- a) $(-3)^4 =$</p>
-<p class="q-p">- b) $-3^4 =$</p>
-<p class="q-p">- c) $(-5)^3 =$</p>
-<p class="q-p">- d) $-5^3 =$</p>
+<ul class="q-list">
+<li>a) (-3)⁴ =</li>
+<li>b) -3⁴ =</li>
+<li>c) (-5)³ =</li>
+<li>d) -5³ =</li>
+</ul>
         </div>
         <div class="work-grid-area">
           <div class="work-label">İşlem ve Çözüm Adımları:</div>
@@ -1123,7 +1163,7 @@
           <span class="q-tag">Kuvvetler ve Dört İşlem</span>
         </div>
         <div class="q-body">
-          <div class="math-box">(-2)^5 + (-4)^2 - (-1)^{50}</div>
+          <div class="math-box">(-2)⁵ + (-4)² - (-1)⁵⁰</div>
 <p class="q-p">işleminin sonucunu bulunuz.</p>
         </div>
         <div class="work-grid-area">
@@ -1142,7 +1182,7 @@
           <span class="q-tag">Sıfırıncı Kuvvet ve 1 Kuralı</span>
         </div>
         <div class="q-body">
-          <div class="math-box">(-10)^0 + -10^0 + (-1)^{99} + (-1)^{100}</div>
+          <div class="math-box">(-10)⁰ + -10⁰ + (-1)⁹⁹ + (-1)¹⁰⁰</div>
 <p class="q-p">işleminin sonucunu adım adım hesaplayınız.</p>
         </div>
         <div class="work-grid-area">
@@ -1161,7 +1201,7 @@
           <span class="q-tag">Karışık Kuvvetler</span>
         </div>
         <div class="q-body">
-          <div class="math-box">(-6)^2 - 4^2 + (-2)^3</div>
+          <div class="math-box">(-6)² - 4² + (-2)³</div>
 <p class="q-p">işleminin sonucunu bulunuz.</p>
         </div>
         <div class="work-grid-area">
@@ -1180,8 +1220,8 @@
           <span class="q-tag">Harfli Üslü İfade</span>
         </div>
         <div class="q-body">
-          <p class="q-p">$a = -3$ olduğuna göre,</p>
-<div class="math-box">a^3 - a^2 + 2a</div>
+          <p class="q-p">a = -3 olduğuna göre,</p>
+<p class="q-p">a³ - a² + 2a</p>
 <p class="q-p">ifadesinin değerini bulunuz.</p>
         </div>
         <div class="work-grid-area">
@@ -1190,7 +1230,7 @@
         </div>
         <div class="solution-panel">
           <strong>Doğru Sonuç: -42</strong><br>
-          <span>Açıklama / Çözüm: (-3)^3 - (-3)^2 + 2(-3) = -27 - 9 - 6 = -42</span>
+          <span>Açıklama / Çözüm: (-3)³ - (-3)² + 2(-3) = -27 - 9 - 6 = -42</span>
         </div>
       </div>
       
@@ -1214,7 +1254,7 @@
           <span class="q-tag">Karesi Verilen Sayı</span>
         </div>
         <div class="q-body">
-          <p class="q-p">$x^2 = 25$ olduğuna göre, $x$'in alabileceği değerlerin çarpımı kaçtır?</p>
+          <p class="q-p">x² = 25 olduğuna göre, x'in alabileceği değerlerin çarpımı kaçtır?</p>
         </div>
         <div class="work-grid-area">
           <div class="work-label">İşlem ve Çözüm Adımları:</div>
@@ -1232,7 +1272,7 @@
           <span class="q-tag">Üslü Sayılarda Sıralama</span>
         </div>
         <div class="q-body">
-          <div class="math-box">x = (-2)^4, \quad y = -3^2, \quad z = (-1)^{25}</div>
+          <div class="math-box">x = (-2)⁴, y = -3², z = (-1)²⁵</div>
 <p class="q-p">sayılarını <strong>küçükten büyüğe</strong> doğru sıralayınız.</p>
         </div>
         <div class="work-grid-area">
@@ -1241,7 +1281,7 @@
         </div>
         <div class="solution-panel">
           <strong>Doğru Sonuç: y < z < x</strong><br>
-          <span>Açıklama / Çözüm: x = 16, y = -9, z = -1 \implies -9 < -1 < 16</span>
+          <span>Açıklama / Çözüm: x = 16, y = -9, z = -1 ➔ -9 < -1 < 16</span>
         </div>
       </div>
 
@@ -1251,7 +1291,7 @@
           <span class="q-tag">Ardışık Kuvvetler Toplamı</span>
         </div>
         <div class="q-body">
-          <div class="math-box">(-2)^4 + (-2)^3 + (-2)^2 + (-2)^1 + (-2)^0</div>
+          <div class="math-box">(-2)⁴ + (-2)³ + (-2)² + (-2)¹ + (-2)⁰</div>
 <p class="q-p">işleminin sonucunu adım adım toplayarak bulunuz.</p>
         </div>
         <div class="work-grid-area">
@@ -1303,7 +1343,7 @@
           <span class="q-tag">Köşeli Parantez ve Üslü İşlem</span>
         </div>
         <div class="q-body">
-          <div class="math-box">[(-25) + 3 × (-4)] ÷ (-7) - 2^3</div>
+          <div class="math-box">[(-25) + 3 × (-4)] ÷ (-7) - 2³</div>
 <p class="q-p">işleminin sonucunu adım adım bulunuz.</p>
         </div>
         <div class="work-grid-area">
@@ -1312,7 +1352,7 @@
         </div>
         <div class="solution-panel">
           <strong>Doğru Sonuç: -3</strong><br>
-          <span>Açıklama / Çözüm: [ -25 + (-12) ] ÷ (-7) - 8 = (-37) \dots Düzeltme: [-25 + (-12)] = -37; tam sayı için: [-25 + 3 × (-4)] = -25 - 12 = -37 (Soru metninde -25 yerine -23 alınırsa -35 ÷ (-7) = 5 - 8 = -3)</span>
+          <span>Açıklama / Çözüm: [ -25 + (-12) ] ÷ (-7) - 8 = (-37) ... Düzeltme: [-25 + (-12)] = -37; tam sayı için: [-25 + 3 × (-4)] = -25 - 12 = -37 (Soru metninde -25 yerine -23 alınırsa -35 ÷ (-7) = 5 - 8 = -3)</span>
         </div>
       </div>
 
@@ -1322,7 +1362,7 @@
           <span class="q-tag">Kesir Çizgili Çok Adımlı İşlem</span>
         </div>
         <div class="q-body">
-          <div class="math-box">\frac{(-24) + (-6) × 2}{(-2)^3 + (-1)^5}</div>
+          <div class="math-box">((-24) + (-6) × 2 / (-2)³ + (-1)⁵)</div>
 <p class="q-p">işleminin sonucunu bulunuz.</p>
         </div>
         <div class="work-grid-area">
@@ -1331,7 +1371,7 @@
         </div>
         <div class="solution-panel">
           <strong>Doğru Sonuç: +4</strong><br>
-          <span>Açıklama / Çözüm: \frac{-24 - 12}{-8 - 1} = \frac{-36}{-9} = +4</span>
+          <span>Açıklama / Çözüm: (-24 - 12 / -8 - 1) = (-36 / -9) = +4</span>
         </div>
       </div>
 
@@ -1341,7 +1381,7 @@
           <span class="q-tag">Mutlak Değerli İşlem Önceliği</span>
         </div>
         <div class="q-body">
-          <div class="math-box">|-16 ÷ 4| × (-3) - (-5)^2</div>
+          <div class="math-box">|-16 ÷ 4| × (-3) - (-5)²</div>
 <p class="q-p">işleminin sonucunu bulunuz.</p>
         </div>
         <div class="work-grid-area">
@@ -1360,7 +1400,7 @@
           <span class="q-tag">İç İçe Parantezler</span>
         </div>
         <div class="q-body">
-          <div class="math-box">35 - [(-8) - (-2)^4 ÷ (-4)]</div>
+          <div class="math-box">35 - [(-8) - (-2)⁴ ÷ (-4)]</div>
 <p class="q-p">işleminin sonucunu bulunuz.</p>
         </div>
         <div class="work-grid-area">
@@ -1393,7 +1433,7 @@
           <span class="q-tag">Öncelik Hatası Analizi</span>
         </div>
         <div class="q-body">
-          <p class="q-p">Bir öğrenci $24 - 4 \times 3 + 2$ işlemini yaparken işlem önceliğine dikkat etmeyip işlemleri sırayla soldan sağa yapmıştır.</p>
+          <p class="q-p">Bir öğrenci 24 - 4 × 3 + 2 işlemini yaparken işlem önceliğine dikkat etmeyip işlemleri sırayla soldan sağa yapmıştır.</p>
 <p class="q-p">Öğrencinin bulduğu yanlış sonuç ile <strong>gerçek doğru sonuç</strong> arasındaki fark kaçtır?</p>
         </div>
         <div class="work-grid-area">
@@ -1402,7 +1442,7 @@
         </div>
         <div class="solution-panel">
           <strong>Doğru Sonuç: 36</strong><br>
-          <span>Açıklama / Çözüm:  Yanlış: 24 - 4 = 20, 20 × 3 = 60, 60 + 2 = 62. Doğru: 24 - (4 × 3) + 2 = 24 - 12 + 2 = 14. Fark: 62 - 14 = 48 (veya 20 × 3 + 2 = 62 vs 14, fark: 48)</span>
+          <span>Açıklama / Çözüm: Yanlış: 24 - 4 = 20, 20 × 3 = 60, 60 + 2 = 62. Doğru: 24 - (4 × 3) + 2 = 24 - 12 + 2 = 14. Fark: 62 - 14 = 48 (veya 20 × 3 + 2 = 62 vs 14, fark: 48)</span>
         </div>
       </div>
 
@@ -1412,9 +1452,9 @@
           <span class="q-tag">Laboratuvar Sıcaklık Problemi</span>
         </div>
         <div class="q-body">
-          <p class="q-p">Bir laboratuvarda $-12°C$ sıcaklıktaki bir kimyasal madde ısıtıcıya konuyor.</p>
-<p class="q-p">Isıtıcı bu maddenin sıcaklığını her 3 dakikada $4°C$ artırmaktadır.</p>
-<p class="q-p">Buna göre <strong>18 dakika sonra</strong> maddenin sıcaklığı kaç $°C$ olur?</p>
+          <p class="q-p">Bir laboratuvarda -12°C sıcaklıktaki bir kimyasal madde ısıtıcıya konuyor.</p>
+<p class="q-p">Isıtıcı bu maddenin sıcaklığını her 3 dakikada 4°C artırmaktadır.</p>
+<p class="q-p">Buna göre <strong>18 dakika sonra</strong> maddenin sıcaklığı kaç °C olur?</p>
         </div>
         <div class="work-grid-area">
           <div class="work-label">İşlem ve Çözüm Adımları:</div>
@@ -1422,7 +1462,7 @@
         </div>
         <div class="solution-panel">
           <strong>Doğru Sonuç: +12 °C</strong><br>
-          <span>Açıklama / Çözüm: 18 ÷ 3 = 6 defa artar. 6 × 4 = 24^\circ\text{C} artış. -12 + 24 = +12^\circ\text{C}</span>
+          <span>Açıklama / Çözüm: 18 ÷ 3 = 6 defa artar. 6 × 4 = 24°C artış. -12 + 24 = +12°C</span>
         </div>
       </div>
 
@@ -1432,8 +1472,8 @@
           <span class="q-tag">Asansör ve Kat Problemi</span>
         </div>
         <div class="q-body">
-          <p class="q-p">20 katlı bir binada zemin katın altında 4 kat (otopark ve depolar: $-1, -2, -3, -4$), zemin katın üstünde ise 15 kat bulunmaktadır.</p>
-<p class="q-p">Asansöre $-3$. kattan binen Defne, 9 kat yukarı çıktıktan sonra arkadaşını almak için 4 kat aşağı inmiştir.</p>
+          <p class="q-p">20 katlı bir binada zemin katın altında 4 kat (otopark ve depolar: -1, -2, -3, -4), zemin katın üstünde ise 15 kat bulunmaktadır.</p>
+<p class="q-p">Asansöre -3. kattan binen Defne, 9 kat yukarı çıktıktan sonra arkadaşını almak için 4 kat aşağı inmiştir.</p>
 <p class="q-p">Defne son durumda kaçıncı kattadır?</p>
         </div>
         <div class="work-grid-area">
@@ -1453,9 +1493,11 @@
         </div>
         <div class="q-body">
           <p class="q-p">Bir bilgi yarışmasında kurallar şöyledir:</p>
-<p class="q-p">- Her doğru cevap için $+10$ puan verilir.</p>
-<p class="q-p">- Her yanlış cevap için $-6$ puan silinir.</p>
-<p class="q-p">- Boş bırakılan sorular için 0 puan verilir.</p>
+<ul class="q-list">
+<li>Her doğru cevap için +10 puan verilir.</li>
+<li>Her yanlış cevap için -6 puan silinir.</li>
+<li>Boş bırakılan sorular için 0 puan verilir.</li>
+</ul>
 <p class="q-p">20 soruluk bir testte 14 doğru, 4 yanlış yapan ve 2 soruyu boş bırakan Kerem toplam kaç puan almıştır?</p>
         </div>
         <div class="work-grid-area">
@@ -1497,7 +1539,7 @@
         </div>
         <div class="solution-panel">
           <strong>Doğru Sonuç: 355 metre</strong><br>
-          <span>Açıklama / Çözüm:  Denizaltı son konumu: -180 + 65 = -115 metre. Uçak: +240 metre. Mesafe: 240 - (-115) = 240 + 115 = 355 metre</span>
+          <span>Açıklama / Çözüm: Denizaltı son konumu: -180 + 65 = -115 metre. Uçak: +240 metre. Mesafe: 240 - (-115) = 240 + 115 = 355 metre</span>
         </div>
       </div>
 
@@ -1508,11 +1550,13 @@
         </div>
         <div class="q-body">
           <p class="q-p">Bir bakkalın haftalık kâr-zarar durumu şu şekildedir:</p>
-<p class="q-p">- Pazartesi: 450 TL kâr</p>
-<p class="q-p">- Salı: 200 TL zarar</p>
-<p class="q-p">- Çarşamba: 600 TL kâr</p>
-<p class="q-p">- Perşembe: 350 TL zarar</p>
-<p class="q-p">- Cuma: 500 TL kâr</p>
+<ul class="q-list">
+<li>Pazartesi: 450 TL kâr</li>
+<li>Salı: 200 TL zarar</li>
+<li>Çarşamba: 600 TL kâr</li>
+<li>Perşembe: 350 TL zarar</li>
+<li>Cuma: 500 TL kâr</li>
+</ul>
 <p class="q-p">Bakkalın bu 5 günün sonundaki <strong>net durumu</strong> (kâr mı, zarar mı ve kaç TL) nedir?</p>
         </div>
         <div class="work-grid-area">
@@ -1531,11 +1575,13 @@
           <span class="q-tag">Sayı Doğrusunda Zıplama Örüntüsü</span>
         </div>
         <div class="q-body">
-          <p class="q-p">Bir sayı doğrusunda başlangıç noktası $0$ olan bir çekirge:</p>
-<p class="q-p">- 1. adımda $+4$ birim ileri,</p>
-<p class="q-p">- 2. adımda $-7$ birim geri,</p>
-<p class="q-p">- 3. adımda $+10$ birim ileri,</p>
-<p class="q-p">- 4. adımda $-13$ birim geri zıplamaktadır.</p>
+          <p class="q-p">Bir sayı doğrusunda başlangıç noktası 0 olan bir çekirge:</p>
+<ul class="q-list">
+<li>1. adımda +4 birim ileri,</li>
+<li>2. adımda -7 birim geri,</li>
+<li>3. adımda +10 birim ileri,</li>
+<li>4. adımda -13 birim geri zıplamaktadır.</li>
+</ul>
 <p class="q-p">Bu kurala göre çekirge <strong>6. zıplayışının sonunda</strong> hangi tam sayı üzerinde durur?</p>
         </div>
         <div class="work-grid-area">
@@ -1544,7 +1590,7 @@
         </div>
         <div class="solution-panel">
           <strong>Doğru Sonuç: -9</strong><br>
-          <span>Açıklama / Çözüm:  Adımlar: 0 + 4 - 7 + 10 - 13 + 16 - 19. Gruplarsak: (4 - 7) + (10 - 13) + (16 - 19) = (-3) + (-3) + (-3) = -9</span>
+          <span>Açıklama / Çözüm: Adımlar: 0 + 4 - 7 + 10 - 13 + 16 - 19. Gruplarsak: (4 - 7) + (10 - 13) + (16 - 19) = (-3) + (-3) + (-3) = -9</span>
         </div>
       </div>
       
