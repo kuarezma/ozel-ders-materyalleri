@@ -13,7 +13,7 @@
       --success: #15803d;
       --border: #cbd5e1;
       --bg: #f8fafc;
-      --grid-dot: #cbd5e1;
+      --grid-dot: #94a3b8;
     }
 
     * {
@@ -26,7 +26,7 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       background: #e2e8f0;
       color: #0f172a;
-      line-height: 1.45;
+      line-height: 1.4;
       padding: 20px 10px;
     }
 
@@ -65,7 +65,7 @@
 
     /* A4 Sayfa Kapsayıcısı */
     .fascicle-container {
-      max-width: 860px;
+      max-width: 210mm;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
@@ -75,16 +75,18 @@
     /* A4 Sayfası - DİKEYDE SAYFAYI TAM DOLDURAN FLEX YAPISI */
     .a4-page {
       background: white;
-      width: 100%;
-      min-height: 297mm;
-      padding: 16mm 16mm 14mm 16mm;
-      border-radius: 8px;
+      width: 210mm;
+      height: 297mm;
+      max-height: 297mm;
+      padding: 9mm 12mm 8mm 12mm;
+      border-radius: 6px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.06);
       position: relative;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       box-sizing: border-box;
+      overflow: hidden !important;
       page-break-inside: avoid !important;
       break-inside: avoid !important;
       page-break-after: always !important;
@@ -93,20 +95,21 @@
 
     /* Soruları Sayfa Boyuna Eşit Yayan Kapsayıcı */
     .page-questions-wrap {
-      flex: 1 1 auto;
+      flex: 1 1 0;
+      min-height: 0;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 12px;
-      margin: 4px 0 10px 0;
+      gap: 8px;
+      margin: 4px 0 6px 0;
     }
 
     /* Üst Başlıklar */
     .page-main-header {
       border: 2px solid var(--primary);
-      border-radius: 10px;
-      padding: 12px 16px;
-      margin-bottom: 8px;
+      border-radius: 8px;
+      padding: 8px 14px;
+      margin-bottom: 4px;
       background: #fafcff;
       flex-shrink: 0;
     }
@@ -116,48 +119,48 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 1.5px dashed #cbd5e1;
-      padding-bottom: 8px;
-      margin-bottom: 8px;
+      padding-bottom: 6px;
+      margin-bottom: 6px;
     }
 
     .header-title {
-      font-size: 15.5px;
+      font-size: 14.5px;
       font-weight: 900;
       color: var(--primary);
       letter-spacing: -0.3px;
     }
 
     .teacher-tag {
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 800;
       background: #e0e7ff;
       color: #3730a3;
-      padding: 4px 10px;
-      border-radius: 6px;
+      padding: 3px 8px;
+      border-radius: 5px;
     }
 
     .student-info-grid {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: 10px;
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 600;
     }
 
     .dot-line {
       border-bottom: 1px dotted #94a3b8;
       display: inline-block;
-      min-width: 80px;
+      min-width: 75px;
     }
 
     .mini-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 6px;
-      margin-bottom: 8px;
+      padding-bottom: 4px;
+      margin-bottom: 4px;
       border-bottom: 1.5px solid #e2e8f0;
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 700;
       color: #64748b;
       flex-shrink: 0;
@@ -165,12 +168,13 @@
 
     /* Soru Kartı - Dikeyde Boşluğu Dolduran Yapı */
     .question-card {
-      border: 1.5px solid #e2e8f0;
-      border-radius: 10px;
-      padding: 12px 16px;
+      border: 1.2px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 7px 11px;
       background: white;
       box-sizing: border-box;
       flex: 1 1 0;
+      min-height: 0;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -183,62 +187,62 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       flex-shrink: 0;
     }
 
     .q-badge {
       background: var(--primary);
       color: white;
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 800;
-      padding: 2px 8px;
-      border-radius: 5px;
+      padding: 2px 7px;
+      border-radius: 4px;
     }
 
     .q-tag {
-      font-size: 10.5px;
+      font-size: 10px;
       background: #f1f5f9;
       color: #475569;
-      padding: 2px 7px;
+      padding: 2px 6px;
       border-radius: 4px;
       font-weight: 700;
     }
 
     .q-body {
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       flex-shrink: 0;
     }
 
     .q-p {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       color: #1e293b;
-      line-height: 1.45;
+      line-height: 1.38;
     }
 
     .q-list {
-      margin: 6px 0 6px 20px;
-      font-size: 13.5px;
+      margin: 3px 0 3px 18px;
+      font-size: 12.5px;
       font-weight: 600;
       color: #1e293b;
     }
 
     .q-list li {
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
 
     .math-box {
       font-family: 'JetBrains Mono', monospace;
       background: #f8fafc;
-      padding: 5px 12px;
-      border-radius: 6px;
+      padding: 4px 10px;
+      border-radius: 5px;
       border-left: 3px solid #2563eb;
-      font-size: 14px;
+      font-size: 13px;
       color: #0f172a;
       display: inline-flex;
       align-items: center;
-      margin: 5px 0;
+      margin: 3px 0;
       font-weight: 700;
     }
 
@@ -249,31 +253,31 @@
       vertical-align: middle;
       text-align: center;
       font-size: 0.95em;
-      padding: 0 4px;
-      line-height: 1.15;
+      padding: 0 3px;
+      line-height: 1.1;
     }
 
     .frac .top {
-      border-bottom: 1.5px solid currentColor;
-      padding-bottom: 2px;
+      border-bottom: 1.2px solid currentColor;
+      padding-bottom: 1px;
     }
 
     .frac .bottom {
-      padding-top: 2px;
+      padding-top: 1px;
     }
 
     /* GENİŞLETİLMİŞ VE TÜM BOŞLUĞU DOLDURAN NOKTALI İŞLEM ALANI */
     .work-grid-area {
-      flex-grow: 1;
-      min-height: 130px;
-      border: 1.5px dashed #cbd5e1;
-      border-radius: 8px;
+      flex: 1 1 0;
+      min-height: 0;
+      border: 1.2px dashed #cbd5e1;
+      border-radius: 6px;
       background-color: #fffdfa;
       background-image: radial-gradient(var(--grid-dot) 1.2px, transparent 1.2px);
       background-size: 14px 14px;
-      padding: 8px 12px;
+      padding: 6px 10px;
       position: relative;
-      margin-top: 6px;
+      margin-top: 4px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -281,19 +285,9 @@
       break-inside: avoid !important;
     }
 
-    /* 3 Sorulu Sayfalarda (Sayfa 1 ve 13) Ekstra Geniş Alan */
-    .page-layout-3q .work-grid-area {
-      min-height: 175px;
-    }
-
-    /* 4 Sorulu Sayfalarda Geniş Alan */
-    .page-layout-4q .work-grid-area {
-      min-height: 135px;
-    }
-
     .work-label {
       font-family: 'Caveat', cursive;
-      font-size: 15.5px;
+      font-size: 14.5px;
       color: #94a3b8;
       pointer-events: none;
     }
@@ -301,43 +295,44 @@
     .answer-box {
       align-self: flex-end;
       background: white;
-      border: 1.5px solid var(--primary);
-      border-radius: 6px;
-      padding: 3px 12px;
-      font-size: 12.5px;
+      border: 1.2px solid var(--primary);
+      border-radius: 5px;
+      padding: 2px 10px;
+      font-size: 11.5px;
       font-weight: 800;
       color: var(--primary);
       display: flex;
       align-items: center;
-      gap: 6px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+      gap: 5px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
     }
 
     .answer-line {
       display: inline-block;
-      min-width: 55px;
-      border-bottom: 1.5px solid #1e3a8a;
+      min-width: 50px;
+      border-bottom: 1.2px solid #1e3a8a;
     }
 
     /* Öğretmen Çözüm Paneli */
     .solution-panel {
-      margin-top: 6px;
-      padding: 8px 12px;
+      margin-top: 4px;
+      padding: 6px 10px;
       background: #f0fdf4;
-      border-left: 3.5px solid #16a34a;
+      border-left: 3px solid #16a34a;
       border-radius: 5px;
-      font-size: 12px;
+      font-size: 11.5px;
       color: #14532d;
-      line-height: 1.4;
+      line-height: 1.35;
       display: none;
-      flex-grow: 1;
+      flex: 1 1 0;
+      min-height: 0;
       page-break-inside: avoid !important;
       break-inside: avoid !important;
     }
 
     .solution-panel strong {
       color: #166534;
-      font-size: 12.5px;
+      font-size: 12px;
     }
 
     body.show-solutions .solution-panel {
@@ -350,45 +345,45 @@
 
     /* Değerlendirme Kutusu (Son Sayfa) */
     .eval-box {
-      margin-top: 6px;
-      border: 1.5px solid #7c3aed;
+      margin-top: 5px;
+      border: 1.2px solid #7c3aed;
       background: #faf5ff;
-      border-radius: 8px;
-      padding: 8px 12px;
+      border-radius: 6px;
+      padding: 6px 10px;
       flex-shrink: 0;
     }
 
     .eval-title {
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 800;
       color: #6b21a8;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
 
     .eval-grid {
       display: flex;
       justify-content: space-between;
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 600;
       color: #374151;
     }
 
     .page-footer {
-      margin-top: auto;
+      margin-top: 4px;
       border-top: 1px solid #e2e8f0;
-      padding-top: 5px;
+      padding-top: 4px;
       display: flex;
       justify-content: space-between;
-      font-size: 10.5px;
+      font-size: 10px;
       color: #64748b;
       font-weight: 600;
       flex-shrink: 0;
     }
 
-    /* KUSURSUZ YAZDIRMA STANDARDI (TAM SAYFA DOLUMU) */
+    /* KUSURSUZ YAZDIRMA STANDARDI (TAM SAYFA DOLUMU & SIFIR TAŞMA) */
     @page {
       size: A4 portrait;
-      margin: 8mm 10mm 8mm 10mm;
+      margin: 0;
     }
 
     @media print {
@@ -396,7 +391,10 @@
         background: white !important;
         padding: 0 !important;
         margin: 0 !important;
+        width: 210mm !important;
         height: auto !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
       .toolbar {
         display: none !important;
@@ -404,16 +402,18 @@
       .fascicle-container {
         gap: 0 !important;
         margin: 0 !important;
-        max-width: 100% !important;
+        padding: 0 !important;
+        max-width: none !important;
+        width: 210mm !important;
       }
       .a4-page {
         box-shadow: none !important;
         border-radius: 0 !important;
-        width: 100% !important;
-        min-height: 281mm !important;
-        height: 281mm !important;
-        max-height: 281mm !important;
-        padding: 4mm 6mm 6mm 6mm !important;
+        border: none !important;
+        width: 210mm !important;
+        height: 297mm !important;
+        max-height: 297mm !important;
+        padding: 8mm 12mm 7mm 12mm !important;
         margin: 0 !important;
         page-break-after: always !important;
         break-after: page !important;
@@ -422,38 +422,44 @@
         display: flex !important;
         flex-direction: column !important;
         justify-content: space-between !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
       }
       .page-questions-wrap {
-        flex: 1 1 auto !important;
+        flex: 1 1 0 !important;
+        min-height: 0 !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: space-between !important;
-        gap: 8px !important;
-        margin: 4px 0 !important;
+        gap: 7px !important;
+        margin: 3px 0 5px 0 !important;
+        overflow: hidden !important;
       }
       .question-card {
         flex: 1 1 0 !important;
+        min-height: 0 !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: space-between !important;
         page-break-inside: avoid !important;
         break-inside: avoid !important;
         -webkit-column-break-inside: avoid !important;
-        border-color: #cbd5e1 !important;
+        border: 1.2px solid #cbd5e1 !important;
         margin-bottom: 0 !important;
-        padding: 8px 12px !important;
+        padding: 6px 10px !important;
+        box-sizing: border-box !important;
       }
       .work-grid-area {
-        flex-grow: 1 !important;
-        min-height: 125px !important;
+        flex: 1 1 0 !important;
+        min-height: 0 !important;
         page-break-inside: avoid !important;
         break-inside: avoid !important;
+        margin-top: 4px !important;
+        padding: 5px 9px !important;
       }
-      .page-layout-3q .work-grid-area {
-        min-height: 170px !important;
-      }
-      .page-layout-4q .work-grid-area {
-        min-height: 125px !important;
+      .solution-panel {
+        flex: 1 1 0 !important;
+        min-height: 0 !important;
       }
     }
   </style>
@@ -466,7 +472,7 @@
       <button class="btn btn-outline" onclick="toggleSolutions()" id="modeBtn">👁️ Çözümleri ve Cevapları Göster</button>
     </div>
     <div style="font-weight: 800; font-size: 13.5px; color: #1e3a8a;">
-      50 KLASİK SORU FASİKÜLÜ (TAM SAYFA GENİŞLETİLMİŞ MİZANPAJ)
+      7. SINIF: 50 KLASİK SORU FASİKÜLÜ (13 SAYFA TAM MİZANPAJ)
     </div>
     <div>
       <button class="btn btn-primary" onclick="window.print()">🖨️ Yazdır / PDF Kaydet</button>
@@ -476,7 +482,7 @@
   <div class="fascicle-container">
 
     <!-- ================= SAYFA 1 / 13 ================= -->
-    <div class="a4-page page-layout-3q">
+    <div class="a4-page page-layout-first">
       
       <header class="page-main-header">
         <div class="header-top">
@@ -1591,7 +1597,7 @@
     </div>
 
     <!-- ================= SAYFA 13 / 13 ================= -->
-    <div class="a4-page page-layout-3q">
+    <div class="a4-page page-layout-last">
       
       <div class="mini-header">
         <span>7. Sınıf Matematik: Tam Sayılarla İşlemler Çalışma Fasikülü</span>
