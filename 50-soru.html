@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7. Sınıf Tam Sayılarla İşlemler — 50 Klasik Soru Fasikülü</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=JetBrains+Mono:wght@600;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #7c3aed;
+      --accent: #f59e0b;
+      --success: #16a34a;
+      --border: #cbd5e1;
+      --bg: #f8fafc;
+      --grid-dot: #cbd5e1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #e2e8f0;
+      color: #0f172a;
+      line-height: 1.5;
+      padding: 25px 15px;
+    }
+
+    .toolbar {
+      max-width: 900px;
+      margin: 0 auto 20px auto;
+      background: white;
+      padding: 14px 20px;
+      border-radius: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 15px;
+      z-index: 1000;
+    }
+
+    .btn {
+      padding: 9px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 13.5px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-outline { background: #f1f5f9; color: #1e293b; border: 1.5px solid #cbd5e1; }
+    .btn:hover { transform: translateY(-1px); opacity: 0.95; }
+
+    /* A4 Sayfaları */
+    .fascicle-container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .a4-page {
+      background: white;
+      padding: 30px 35px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      page-break-after: always;
+      position: relative;
+    }
+
+    /* Üst Başlık */
+    .page-header {
+      border: 2px solid var(--primary);
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      background: #fafcff;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px dashed #cbd5e1;
+      padding-bottom: 8px;
+      margin-bottom: 8px;
+    }
+
+    .header-title {
+      font-size: 17px;
+      font-weight: 900;
+      color: var(--primary);
+      letter-spacing: -0.3px;
+    }
+
+    .teacher-badge {
+      font-size: 12px;
+      font-weight: 700;
+      background: #e0e7ff;
+      color: #3730a3;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .student-bar {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 10px;
+      font-size: 12.5px;
+      font-weight: 600;
+    }
+
+    .line-dot {
+      border-bottom: 1px dotted #94a3b8;
+      display: inline-block;
+      min-width: 80px;
+    }
+
+    /* Bölüm Başlığı */
+    .section-banner {
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      color: white;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Klasik Soru Kartı */
+    .question-card {
+      border: 1.5px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin-bottom: 16px;
+      background: white;
+      page-break-inside: avoid;
+    }
+
+    .q-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .q-number {
+      background: var(--primary);
+      color: white;
+      font-size: 12.5px;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+
+    .q-tag {
+      font-size: 11.5px;
+      background: #f1f5f9;
+      color: #475569;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    .q-text {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .math-highlight {
+      font-family: 'JetBrains Mono', monospace;
+      background: #f8fafc;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border-left: 3px solid #2563eb;
+      font-size: 14px;
+      color: #0f172a;
+      display: inline-block;
+      margin: 6px 0;
+    }
+
+    /* Genişletilmiş İşlem Alanı (Kareli / Noktalı Izgara) */
+    .work-grid-area {
+      min-height: 115px;
+      border: 1.5px dashed #cbd5e1;
+      border-radius: 8px;
+      background-color: #fffdfa;
+      background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
+      background-size: 14px 14px;
+      padding: 10px;
+      position: relative;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .work-watermark {
+      font-family: 'Caveat', cursive;
+      font-size: 16px;
+      color: #94a3b8;
+      pointer-events: none;
+    }
+
+    .answer-box {
+      align-self: flex-end;
+      background: white;
+      border: 2px solid var(--primary);
+      border-radius: 6px;
+      padding: 4px 12px;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .answer-line {
+      display: inline-block;
+      min-width: 60px;
+      border-bottom: 1.5px solid #1e3a8a;
+    }
+
+    /* Öğretmen Çözümü (Gizli/Açık) */
+    .solution-panel {
+      margin-top: 10px;
+      padding: 10px 14px;
+      background: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #14532d;
+      line-height: 1.5;
+      display: none;
+    }
+
+    .solution-panel strong {
+      color: #166534;
+    }
+
+    body.show-solutions .solution-panel {
+      display: block;
+    }
+
+    body.show-solutions .work-grid-area {
+      display: none;
+    }
+
+    .page-footer {
+      border-top: 1px solid #e2e8f0;
+      padding-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #64748b;
+      font-weight: 600;
+      margin-top: 20px;
+    }
+
+    /* Yazdırma Ayarları */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      .toolbar {
+        display: none;
+      }
+      .a4-page {
+        box-shadow: none;
+        padding: 15mm 15mm;
+        margin: 0;
+        page-break-after: always;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Üst Toolbar -->
+  <div class="toolbar">
+    <div>
+      <button class="btn btn-outline" onclick="toggleSolutions()" id="modeBtn">👁️ Çözümleri ve Cevapları Göster</button>
+    </div>
+    <div style="font-weight: 800; font-size: 14px; color: #1e3a8a;">
+      50 KLASİK SORU FASİKÜLÜ (GENİŞ İŞLEM ALANLI)
+    </div>
+    <div>
+      <button class="btn btn-primary" onclick="window.print()">🖨️ Yazdır / PDF Kaydet</button>
+    </div>
+  </div>
+
+  <div class="fascicle-container">
+
+    <!-- ================= SAYFA 1: Toplama İşlemi (1-5) ================= -->
+    <div class="a4-page">
+      <header class="page-header">
+        <div class="header-top">
+          <div class="header-title">7. SINIF MATEMATİK: TAM SAYILARLA İŞLEMLER ÇALIŞMA FASİKÜLÜ</div>
+          <div class="teacher-badge">Uğur YAŞAYAN & Demet GÜRHAN YAŞAYAN</div>
+        </div>
+        <div class="student-fields student-bar">
+          <div>Öğrenci: <span class="line-dot"></span></div>
+          <div>Tarih: <span class="line-dot"></span></div>
+          <div>Doğru: ____ / 50</div>
+          <div>Puan: ____</div>
+        </div>
+      </header>
+
+      <div class="section-banner">
+        <span>🟦 BÖLÜM 1: TAM SAYILARDA TOPLAMA İŞLEMİ</span>
+        <span>Sorular 1 - 5</span>
+      </div>
+
+      <!-- S1 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 1</span>
+          <span class="q-tag">Aynı & Zıt İşaretlilerde Toplama</span>
+        </div>
+        <div class="q-text">Aşağıda verilen işlemin sonucunu adım adım bulunuz:</div>
+        <div class="math-highlight">(+18) + (+27) + (-14)</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Önce pozitifler toplanır: 18 + 27 = +45. Ardından zıt işaretli ile toplanır: (+45) + (-14) = 45 - 14 = <strong>+31</strong>.
+        </div>
+      </div>
+
+      <!-- S2 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 2</span>
+          <span class="q-tag">Negatif Sayılarda Toplama</span>
+        </div>
+        <div class="q-text">Aşağıda verilen işlemin sonucunu bulunuz:</div>
+        <div class="math-highlight">(-35) + (+19) + (-12)</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Negatifler toplanır: (-35) + (-12) = -47. Ardından (+19) eklenir: (-47) + (+19) = -(47 - 19) = <strong>-28</strong>.
+        </div>
+      </div>
+
+      <!-- S3 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 3</span>
+          <span class="q-tag">Basamak Kavramı ve Toplama</span>
+        </div>
+        <div class="q-text">İki basamaklı <strong>en küçük pozitif tam sayı</strong> ile iki basamaklı <strong>en büyük negatif tam sayının</strong> toplamı kaçtır? İşlemi yazarak gösteriniz.</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> İki basamaklı en küçük pozitif tam sayı = +10. İki basamaklı en büyük negatif tam sayı = -10. Toplam: (+10) + (-10) = <strong>0</strong> (Ters eleman kuralı).
+        </div>
+      </div>
+
+      <!-- S4 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 4</span>
+          <span class="q-tag">Sayı Doğrusunda Modelleme</span>
+        </div>
+        <div class="q-text">Sayı doğrusunda <strong>-6</strong> noktasında bulunan bir karınca, önce 11 birim sağa, ardından bulunduğu noktadan 7 birim sola hareket ediyor. Karıncanın durduğu son tam sayıyı bulunuz.</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları ve Sayı Doğrusu Çizimi:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Başlangıç: -6. Sağa 11 birim: (-6) + (+11) = +5. Sola 7 birim: (+5) + (-7) = <strong>-2</strong>.
+        </div>
+      </div>
+
+      <!-- S5 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 5</span>
+          <span class="q-tag">Sayma Pulları & Nötr Çiftler</span>
+        </div>
+        <div class="q-text">Bir kutunun içinde 7 adet (-) pul varken bu kutuya 4 adet (+) pul ekleniyor. Oluşan <strong>nötr çiftleri</strong> belirterek kutuda kalan son durumu ve matematiksel işlemini yazınız.</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">Pul Çizimi ve İşlem:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> 4 adet (+) pul ile 4 adet (-) pul bir araya gelerek 4 adet nötr çift (0) oluşturur. Geriye 3 adet (-) pul kalır. İşlem: (-7) + (+4) = <strong>-3</strong>.
+        </div>
+      </div>
+
+      <footer class="page-footer">
+        <span>7. Sınıf Matematik Özel Ders Fasikülü</span>
+        <span>Sayfa 1 / 10</span>
+      </footer>
+    </div>
+
+
+    <!-- ================= SAYFA 2: Toplama & Çıkarmaya Giriş (6-10) ================= -->
+    <div class="a4-page">
+      <div class="section-banner" style="background: linear-gradient(135deg, #c2410c, #ea580c);">
+        <span>🟧 BÖLÜM 2: TOPLAMA ÖZELLİKLERİ VE ÇIKARMA İŞLEMİ</span>
+        <span>Sorular 6 - 10</span>
+      </div>
+
+      <!-- S6 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 6</span>
+          <span class="q-tag">Toplama Özellikleri (Ters Eleman)</span>
+        </div>
+        <div class="q-text"><strong>[(-28) + (+14)] + A = 0</strong> olduğuna göre, toplama işleminin ters eleman özelliğini kullanarak A tam sayısını bulunuz.</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Köşeli parantez: (-28) + (+14) = -14. (-14) + A = 0 olması için A, -14'ün toplama işlemine göre tersi olmalıdır. <strong>A = +14</strong>.
+        </div>
+      </div>
+
+      <!-- S7 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 7</span>
+          <span class="q-tag">Mutlak Değerli Toplama</span>
+        </div>
+        <div class="q-text">Aşağıdaki işlemin sonucunu bulunuz:</div>
+        <div class="math-highlight">|-19| + |-8| + (-15)</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> |-19| = 19, |-8| = 8. İşlem: 19 + 8 + (-15) = 27 - 15 = <strong>+12</strong>.
+        </div>
+      </div>
+
+      <!-- S8 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 8</span>
+          <span class="q-tag">Sıcaklık Değişimi Problemi</span>
+        </div>
+        <div class="q-text">Erzurum'da gece ölçülen hava sıcaklığı -13°C'dir. Gündüz sıcaklık geceye göre 9°C arttığına göre, Erzurum'da gündüz ölçülen hava sıcaklığı kaç °C'dir?</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Başlangıç: -13°C. Artış (+9°C): (-13) + (+9) = -(13 - 9) = <strong>-4°C</strong>.
+        </div>
+      </div>
+
+      <!-- S9 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 9</span>
+          <span class="q-tag">Çıkarma İşlemi (Dönüştürme Kuralı)</span>
+        </div>
+        <div class="q-text"><strong>(+16) - (+29)</strong> işlemini çıkarmayı toplamaya dönüştürme kuralını adım adım göstererek çözünüz.</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">Dönüşüm ve İşlem:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Çıkarma toplamaya dönüşür, çıkan sayının işareti tersine çevrilir: (+16) + (-29) = -(29 - 16) = <strong>-13</strong>.
+        </div>
+      </div>
+
+      <!-- S10 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 10</span>
+          <span class="q-tag">Negatiften Negatif Çıkarma</span>
+        </div>
+        <div class="q-text">Aşağıda verilen işlemin sonucunu bulunuz:</div>
+        <div class="math-highlight">(-24) - (-18)</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> İki eksi yan yana artıya döner: (-24) + (+18) = -(24 - 18) = <strong>-6</strong>.
+        </div>
+      </div>
+
+      <footer class="page-footer">
+        <span>7. Sınıf Matematik Özel Ders Fasikülü</span>
+        <span>Sayfa 2 / 10</span>
+      </footer>
+    </div>
+
+
+    <!-- ================= SAYFA 3: Çıkarma İşlemi Devam (11-15) ================= -->
+    <div class="a4-page">
+      <div class="section-banner" style="background: linear-gradient(135deg, #c2410c, #ea580c);">
+        <span>🟧 BÖLÜM 2: TAM SAYILARDA ÇIKARMA İŞLEMİ (DEVAM)</span>
+        <span>Sorular 11 - 15</span>
+      </div>
+
+      <!-- S11 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 11</span>
+          <span class="q-tag">Üçlü Çıkarma İşlemi</span>
+        </div>
+        <div class="q-text">Aşağıda verilen işlemin sonucunu bulunuz:</div>
+        <div class="math-highlight">(+15) - (-9) - (+12)</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Toplamaya dönüştürelim: (+15) + (+9) + (-12) = 24 - 12 = <strong>+12</strong>.
+        </div>
+      </div>
+
+      <!-- S12 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 12</span>
+          <span class="q-tag">Sayma Pulları ile Çıkarma (Sıfır Çifti)</span>
+        </div>
+        <div class="q-text">İçinde 5 adet (+) pul bulunan bir kutudan 8 adet (+) pul çıkarılmak isteniyor. Kutuya kaç tane <strong>sıfır çifti (+ -)</strong> eklenmesi gerektiğini açıklayarak işlemin sonucunu bulunuz.</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">Pul Modellemesi ve Açıklama:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> 5 puldan 8 pul çıkmayacağı için kutuya <strong>3 adet sıfır çifti (+ -)</strong> eklenir. Kutuda 8 tane (+) pul oluşur ve dışarı atılır. Geriye 3 adet (-) pul kalır. Sonuç: <strong>-3</strong>.
+        </div>
+      </div>
+
+      <!-- S13 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 13</span>
+          <span class="q-tag">Harfli Çıkarma İşlemi</span>
+        </div>
+        <div class="q-text"><strong>a = -14</strong> ve <strong>b = -9</strong> olduğuna göre, <strong>a - b</strong> ve <strong>b - a</strong> değerlerini ayrı ayrı hesaplayınız.</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">a - b: _____ | b - a: _____</div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> a - b = -14 - (-9) = -14 + 9 = <strong>-5</strong>.  
+          b - a = -9 - (-14) = -9 + 14 = <strong>+5</strong>.
+        </div>
+      </div>
+
+      <!-- S14 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 14</span>
+          <span class="q-tag">Çok Adımlı Çıkarma</span>
+        </div>
+        <div class="q-text">Aşağıda verilen işlemin sonucunu bulunuz:</div>
+        <div class="math-highlight">(-50) - (-20) - (+15) - (-10)</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Dönüştürelim: (-50) + (+20) + (-15) + (+10) = (-65) + (+30) = <strong>-35</strong>.
+        </div>
+      </div>
+
+      <!-- S15 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 15</span>
+          <span class="q-tag">Sayı Doğrusunda Uzaklık</span>
+        </div>
+        <div class="q-text">Sayı doğrusunda <strong>-17</strong> sayısının <strong>+8</strong> sayısına olan uzaklığı kaç birimdir? Çıkarma veya mutlak değer işlemiyle gösteriniz.</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Uzaklık = |(+8) - (-17)| = |8 + 17| = <strong>25 birim</strong>.
+        </div>
+      </div>
+
+      <footer class="page-footer">
+        <span>7. Sınıf Matematik Özel Ders Fasikülü</span>
+        <span>Sayfa 3 / 10</span>
+      </footer>
+    </div>
+
+
+    <!-- ================= SAYFA 4: Çıkarma Sonu & Çarpma İşlemi (16-20) ================= -->
+    <div class="a4-page">
+      <div class="section-banner" style="background: linear-gradient(135deg, #15803d, #22c55e);">
+        <span>🟩 BÖLÜM 3: TAM SAYILARDA ÇARPMA İŞLEMİ</span>
+        <span>Sorular 16 - 20</span>
+      </div>
+
+      <!-- S16 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 16</span>
+          <span class="q-tag">Sıcaklık Farkı Problemi</span>
+        </div>
+        <div class="q-text">Bir dondurucunun iç sıcaklığı -18°C, oda sıcaklığı ise +24°C olarak ölçülmüştür. Oda sıcaklığı dondurucunun sıcaklığından <strong>kaç °C fazladır?</strong></div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Fark: (+24) - (-18) = 24 + 18 = <strong>42°C</strong> daha fazladır.
+        </div>
+      </div>
+
+      <!-- S17 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 17</span>
+          <span class="q-tag">Zıt İşaretlilerde Çarpma</span>
+        </div>
+        <div class="q-text">Aşağıda verilen işlemin sonucunu işaret kuralını belirterek bulunuz:</div>
+        <div class="math-highlight">(-12) × (+7)</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Zıt işaretlilerin çarpımı negatiftir (-): (-12) × (+7) = <strong>-84</strong>.
+        </div>
+      </div>
+
+      <!-- S18 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 18</span>
+          <span class="q-tag">Aynı İşaretlilerde Çarpma</span>
+        </div>
+        <div class="q-text">Aşağıda verilen işlemin sonucunu bulunuz:</div>
+        <div class="math-highlight">(-15) × (-6)</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> İki negatifin çarpımı pozitiftir (+): (-15) × (-6) = <strong>+90</strong>.
+        </div>
+      </div>
+
+      <!-- S19 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 19</span>
+          <span class="q-tag">Çoklu Tam Sayı Çarpımı</span>
+        </div>
+        <div class="q-text">Aşağıda verilen işlemin sonucunu adım adım çarpma yaparak bulunuz:</div>
+        <div class="math-highlight">(-2) × (+5) × (-4) × (-3)</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> (-2) × 5 = -10. (-10) × (-4) = +40. (+40) × (-3) = <strong>-120</strong>. (3 tane eksi tek sayıda olduğu için sonuç negatiftir).
+        </div>
+      </div>
+
+      <!-- S20 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 20</span>
+          <span class="q-tag">Dağılma Özelliği</span>
+        </div>
+        <div class="q-text">Çarpma işleminin toplama üzerine dağılma özelliğini kullanarak aşağıdaki işlemi yapınız:</div>
+        <div class="math-highlight">(-8) × [15 + (-5)]</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">Dağılma Adımları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Dağılma: [(-8) × 15] + [(-8) × (-5)] = -120 + (+40) = <strong>-80</strong>.
+        </div>
+      </div>
+
+      <footer class="page-footer">
+        <span>7. Sınıf Matematik Özel Ders Fasikülü</span>
+        <span>Sayfa 4 / 10</span>
+      </footer>
+    </div>
+
+
+    <!-- ================= SAYFA 5: Çarpma Sonu & Bölme İşlemi (21-25) ================= -->
+    <div class="a4-page">
+      <div class="section-banner" style="background: linear-gradient(135deg, #0d9488, #14b8a6);">
+        <span>🟫 BÖLÜM 4: ÇARPMA ANALİZİ VE BÖLME İŞLEMİ</span>
+        <span>Sorular 21 - 25</span>
+      </div>
+
+      <!-- S21 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 21</span>
+          <span class="q-tag">Özel Tam Sayı Çarpımı</span>
+        </div>
+        <div class="q-text">İki basamaklı <strong>en küçük negatif tam sayı</strong> ile rakamları farklı <strong>en büyük negatif tam sayının</strong> çarpımı kaçtır?</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> En küçük 2 basamaklı negatif tam sayı = -99. Rakamları farklı en büyük negatif tam sayı = -10. Çarpım: (-99) × (-10) = <strong>+990</strong>.
+        </div>
+      </div>
+
+      <!-- S22 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 22</span>
+          <span class="q-tag">Cebirsel Değer Hesaplama</span>
+        </div>
+        <div class="q-text"><strong>x = -4</strong> ve <strong>y = +6</strong> olduğuna göre, <strong>3x · y - 2x</strong> ifadesinin değerini bulunuz.</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> 3(-4)(6) - 2(-4) = -72 - (-8) = -72 + 8 = <strong>-64</strong>.
+        </div>
+      </div>
+
+      <!-- S23 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 23</span>
+          <span class="q-tag">Çarpma Şeması ve Toplam</span>
+        </div>
+        <div class="q-text">K = (-6) × (-7) ve L = (+8) × (-9) olduğuna göre, <strong>M = K + L</strong> değerini bulunuz.</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">K: ___ | L: ___ | M: ___</div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> K = +42, L = -72. M = 42 + (-72) = <strong>-30</strong>.
+        </div>
+      </div>
+
+      <!-- S24 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 24</span>
+          <span class="q-tag">İşaret Belirleme Mantığı</span>
+        </div>
+        <div class="q-text">a, b, c birer tam sayı olmak üzere; <strong>a · b &gt; 0</strong>, <strong>b · c &lt; 0</strong> ve <strong>a &lt; 0</strong> olduğuna göre a, b, c sayılarının işaretlerini sırasıyla belirleyiniz.</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">Mantık Adımları:</div>
+          <div class="answer-box">a: ___ | b: ___ | c: ___</div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> a &lt; 0 ise a = (-). a · b &gt; 0 ise b = (-). b · c &lt; 0 ise c = (+). Sırasıyla: <strong>(-), (-), (+)</strong>.
+        </div>
+      </div>
+
+      <!-- S25 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 25</span>
+          <span class="q-tag">Zıt İşaretlilerde Bölme</span>
+        </div>
+        <div class="q-text">Aşağıda verilen bölme işleminin sonucunu bulunuz:</div>
+        <div class="math-highlight">(-84) ÷ (+7)</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Zıt işaretlilerde bölme negatiftir: (-84) ÷ (+7) = <strong>-12</strong>.
+        </div>
+      </div>
+
+      <footer class="page-footer">
+        <span>7. Sınıf Matematik Özel Ders Fasikülü</span>
+        <span>Sayfa 5 / 10</span>
+      </footer>
+    </div>
+
+
+    <!-- ================= SAYFA 6: Bölme Sonu & Üslü İfadeler (26-30) ================= -->
+    <div class="a4-page">
+      <div class="section-banner" style="background: linear-gradient(135deg, #6b21a8, #9333ea);">
+        <span>🟪 BÖLÜM 4-5: BÖLME KURALLARI VE ÜSLÜ SAYILARA GİRİŞ</span>
+        <span>Sorular 26 - 30</span>
+      </div>
+
+      <!-- S26 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 26</span>
+          <span class="q-tag">Aynı İşaretlilerde Bölme</span>
+        </div>
+        <div class="q-text">Aşağıda verilen bölme işleminin sonucunu bulunuz:</div>
+        <div class="math-highlight">(-96) ÷ (-8)</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Eksi bölü eksi artıdır (+): (-96) ÷ (-8) = <strong>+12</strong>.
+        </div>
+      </div>
+
+      <!-- S27 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 27</span>
+          <span class="q-tag">Kesir Formatında Bölme</span>
+        </div>
+        <div class="q-text">Aşağıda verilen işlemin sonucunu bulunuz:</div>
+        <div class="math-highlight">(-72 / -6) + (+45 / -9)</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> (-72) / (-6) = +12. (+45) / (-9) = -5. Toplam: 12 + (-5) = <strong>+7</strong>.
+        </div>
+      </div>
+
+      <!-- S28 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 28</span>
+          <span class="q-tag">Sıfır ile Bölme & Tanımsızlık</span>
+        </div>
+        <div class="q-text"><strong>A = 0 / (-8)</strong> ve <strong>B = (-8) / 0</strong> ifadelerinin matematiksel sonuçlarını kuralını açıklayarak yazınız.</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">Açıklama ve Sonuçlar:</div>
+          <div class="answer-box">A: _____ | B: _____</div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Sıfırın sıfırdan farklı sayıya bölümü sıfırdır: <strong>A = 0</strong>. Bir sayının sıfıra bölümü matematikte tanımsızdır: <strong>B = Tanımsız</strong>.
+        </div>
+      </div>
+
+      <!-- S29 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 29</span>
+          <span class="q-tag">Ardışık Bölme İşlemi</span>
+        </div>
+        <div class="q-text">Aşağıda verilen işlemin sonucunu bulunuz:</div>
+        <div class="math-highlight">[(-120) ÷ (+4)] ÷ (-5)</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Parantez içi: (-120) ÷ 4 = -30. Sonra: (-30) ÷ (-5) = <strong>+6</strong>.
+        </div>
+      </div>
+
+      <!-- S30 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 30</span>
+          <span class="q-tag">Ters İşlem Problemi</span>
+        </div>
+        <div class="q-text">Bir tam sayı -4'e bölündüğünde sonuç +18 çıkmaktadır. Bu tam sayının <strong>+6'ya bölümü kaçtır?</strong></div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Sayı = 18 × (-4) = -72. Bu sayının +6'ya bölümü: (-72) ÷ (+6) = <strong>-12</strong>.
+        </div>
+      </div>
+
+      <footer class="page-footer">
+        <span>7. Sınıf Matematik Özel Ders Fasikülü</span>
+        <span>Sayfa 6 / 10</span>
+      </footer>
+    </div>
+
+
+    <!-- ================= SAYFA 7: Üslü Sayılar & Parantez Tuzağı (31-35) ================= -->
+    <div class="a4-page">
+      <div class="section-banner" style="background: linear-gradient(135deg, #b91c1c, #dc2626);">
+        <span>🔴 BÖLÜM 5: TAM SAYILARIN KUVVETLERİ & PARANTEZ TUZAĞI</span>
+        <span>Sorular 31 - 35</span>
+      </div>
+
+      <!-- S31 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 31</span>
+          <span class="q-tag">Parantezli ve Parantezsiz Üs Farkı</span>
+        </div>
+        <div class="q-text">Aşağıdaki ifadelerin değerlerini karşılarına yazınız:</div>
+        <div class="math-highlight">a) (-3)⁴ = ? &nbsp;&nbsp;|&nbsp;&nbsp; b) -3⁴ = ? &nbsp;&nbsp;|&nbsp;&nbsp; c) (-5)³ = ? &nbsp;&nbsp;|&nbsp;&nbsp; d) -5³ = ?</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">Hesaplama ve Açıklama:</div>
+          <div class="answer-box">a: ___ | b: ___ | c: ___ | d: ___</div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> a) (-3)⁴ = <strong>+81</strong> (Çift kuvvet parantez dışı). b) -3⁴ = <strong>-81</strong> (Parantez yok). c) (-5)³ = <strong>-125</strong>. d) -5³ = <strong>-125</strong>.
+        </div>
+      </div>
+
+      <!-- S32 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 32</span>
+          <span class="q-tag">Kuvvetler ve Dört İşlem</span>
+        </div>
+        <div class="q-text">Aşağıda verilen işlemin sonucunu bulunuz:</div>
+        <div class="math-highlight">(-2)⁵ + (-4)² - (-1)⁵⁰</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> (-2)⁵ = -32. (-4)² = +16. (-1)⁵⁰ = +1. İşlem: (-32) + 16 - (+1) = -16 - 1 = <strong>-17</strong>.
+        </div>
+      </div>
+
+      <!-- S33 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 33</span>
+          <span class="q-tag">Sıfırıncı Kuvvet ve 1 Kuralı</span>
+        </div>
+        <div class="q-text">Aşağıda verilen işlemin sonucunu adım adım hesaplayınız:</div>
+        <div class="math-highlight">(-10)⁰ + -10⁰ + (-1)⁹⁹ + (-1)¹⁰⁰</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> (-10)⁰ = +1. -10⁰ = -1. (-1)⁹⁹ = -1. (-1)¹⁰⁰ = +1. Toplam: 1 + (-1) + (-1) + 1 = <strong>0</strong>.
+        </div>
+      </div>
+
+      <!-- S34 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 34</span>
+          <span class="q-tag">Karışık Kuvvetler</span>
+        </div>
+        <div class="q-text">Aşağıda verilen işlemin sonucunu bulunuz:</div>
+        <div class="math-highlight">(-6)² - 4² + (-2)³</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> (-6)² = 36. 4² = 16. (-2)³ = -8. İşlem: 36 - 16 + (-8) = 20 - 8 = <strong>+12</strong>.
+        </div>
+      </div>
+
+      <!-- S35 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 35</span>
+          <span class="q-tag">Harfli Üslü İfade</span>
+        </div>
+        <div class="q-text"><strong>a = -3</strong> olduğuna göre, <strong>a³ - a² + 2a</strong> ifadesinin değerini bulunuz.</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">Yerine Koyma ve İşlem:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> a³ = (-3)³ = -27. a² = (-3)² = +9. 2a = 2(-3) = -6. İşlem: -27 - (+9) + (-6) = -27 - 9 - 6 = <strong>-42</strong>.
+        </div>
+      </div>
+
+      <footer class="page-footer">
+        <span>7. Sınıf Matematik Özel Ders Fasikülü</span>
+        <span>Sayfa 7 / 10</span>
+      </footer>
+    </div>
+
+
+    <!-- ================= SAYFA 8: Üslü Sonu & İşlem Önceliği (36-40) ================= -->
+    <div class="a4-page">
+      <div class="section-banner" style="background: linear-gradient(135deg, #1e40af, #6366f1);">
+        <span>🔷 BÖLÜM 6: ÇOK ADIMLI İŞLEMLER VE İŞLEM ÖNCELİĞİ</span>
+        <span>Sorular 36 - 40</span>
+      </div>
+
+      <!-- S36 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 36</span>
+          <span class="q-tag">Karesi Verilen Sayı</span>
+        </div>
+        <div class="q-text"><strong>x² = 25</strong> olduğuna göre, x'in alabileceği tam sayı değerlerinin çarpımı kaçtır?</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> x = +5 veya x = -5 olabilir. Çarpımları: (+5) × (-5) = <strong>-25</strong>.
+        </div>
+      </div>
+
+      <!-- S37 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 37</span>
+          <span class="q-tag">Üslü Sayılarda Sıralama</span>
+        </div>
+        <div class="q-text"><strong>x = (-2)⁴, y = -3², z = (-1)²⁵</strong> tam sayılarını küçükten büyüğe sıralayınız.</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">Değerler ve Sıralama:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> x = +16, y = -9, z = -1. Küçükten büyüğe: -9 &lt; -1 &lt; 16 ➔ <strong>y &lt; z &lt; x</strong>.
+        </div>
+      </div>
+
+      <!-- S38 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 38</span>
+          <span class="q-tag">Ardışık Kuvvetler Toplamı</span>
+        </div>
+        <div class="q-text">Aşağıda verilen işlemin sonucunu bulunuz:</div>
+        <div class="math-highlight">(-2)⁴ + (-2)³ + (-2)² + (-2)¹ + (-2)⁰</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> 16 + (-8) + 4 + (-2) + 1 = 8 + 4 - 2 + 1 = <strong>+11</strong>.
+        </div>
+      </div>
+
+      <!-- S39 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 39</span>
+          <span class="q-tag">İşlem Önceliği Sıralaması</span>
+        </div>
+        <div class="q-text">Aşağıda verilen işlemin sonucunu işlem önceliğine dikkat ederek çözünüz:</div>
+        <div class="math-highlight">48 - 18 ÷ (-3) + (-4) × 5</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Bölme: 18 ÷ (-3) = -6. Çarpma: (-4) × 5 = -20. İfade: 48 - (-6) + (-20) = 48 + 6 - 20 = 54 - 20 = <strong>+34</strong>.
+        </div>
+      </div>
+
+      <!-- S40 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 40</span>
+          <span class="q-tag">Köşeli Parantez ve Üslü İşlem</span>
+        </div>
+        <div class="q-text">Aşağıda verilen işlemin sonucunu adım adım bulunuz:</div>
+        <div class="math-highlight">[(-23) + 3 × (-4)] ÷ (-7) - 2³</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Parantez içi çarpma: 3 × (-4) = -12. Toplam: (-23) + (-12) = -35. Bölme: (-35) ÷ (-7) = +5. Üs: 2³ = 8. Sonuç: 5 - 8 = <strong>-3</strong>.
+        </div>
+      </div>
+
+      <footer class="page-footer">
+        <span>7. Sınıf Matematik Özel Ders Fasikülü</span>
+        <span>Sayfa 8 / 10</span>
+      </footer>
+    </div>
+
+
+    <!-- ================= SAYFA 9: İşlem Önceliği & Problemler (41-45) ================= -->
+    <div class="a4-page">
+      <div class="section-banner" style="background: linear-gradient(135deg, #0284c7, #0369a1);">
+        <span>🔷 BÖLÜM 6-7: İŞLEM ÖNCELİĞİ VE GÜNLÜK HAYAT PROBLEMLERİ</span>
+        <span>Sorular 41 - 45</span>
+      </div>
+
+      <!-- S41 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 41</span>
+          <span class="q-tag">Kesir Çizgili Çok Adımlı İşlem</span>
+        </div>
+        <div class="q-text">Aşağıdaki kesirli işlemin sonucunu bulunuz:</div>
+        <div class="math-highlight">[(-24) + (-6) × 2] ÷ [(-2)³ + (-1)⁵]</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">Pay ve Payda Hesaplama:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Pay: -24 + (-12) = -36. Payda: (-8) + (-1) = -9. Bölüm: (-36) ÷ (-9) = <strong>+4</strong>.
+        </div>
+      </div>
+
+      <!-- S42 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 42</span>
+          <span class="q-tag">Mutlak Değerli İşlem Önceliği</span>
+        </div>
+        <div class="q-text">Aşağıda verilen işlemin sonucunu bulunuz:</div>
+        <div class="math-highlight">|-16 ÷ 4| × (-3) - (-5)²</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> |-4| = 4. 4 × (-3) = -12. (-5)² = 25. İşlem: -12 - 25 = <strong>-37</strong>.
+        </div>
+      </div>
+
+      <!-- S43 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 43</span>
+          <span class="q-tag">İç İçe Parantezler</span>
+        </div>
+        <div class="q-text">Aşağıda verilen işlemin sonucunu bulunuz:</div>
+        <div class="math-highlight">35 - [(-8) - (-2)⁴ ÷ (-4)]</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> (-2)⁴ = 16. 16 ÷ (-4) = -4. Köşeli içi: -8 - (-4) = -8 + 4 = -4. İşlem: 35 - (-4) = 35 + 4 = <strong>+39</strong>.
+        </div>
+      </div>
+
+      <!-- S44 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 44</span>
+          <span class="q-tag">Öncelik Hatası Analizi</span>
+        </div>
+        <div class="q-text">Bir öğrenci <strong>24 - 4 × 3 + 2</strong> işlemini yaparken soldan sağa sırayla yapmıştır. Öğrencinin bulduğu yanlış sonuç ile <strong>gerçek doğru sonuç</strong> arasındaki fark kaçtır?</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">Yanlış ve Doğru Çözüm:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Öğrencinin çözümü (soldan sağa): 24 - 4 = 20; 20 × 3 = 60; 60 + 2 = 62.  
+          Gerçek sonuç: 24 - (4 × 3) + 2 = 24 - 12 + 2 = 14.  
+          Fark: 62 - 14 = <strong>48</strong>.
+        </div>
+      </div>
+
+      <!-- S45 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 45</span>
+          <span class="q-tag">Laboratuvar Sıcaklık Problemi</span>
+        </div>
+        <div class="q-text">-12°C sıcaklıktaki bir kimyasal madde ısıtıcıya konuyor. Isıtıcı her 3 dakikada sıcaklığı 4°C artırmaktadır. Buna göre <strong>18 dakika sonra</strong> maddenin sıcaklığı kaç °C olur?</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> 18 dakika içinde: 18 ÷ 3 = 6 defa sıcaklık artar. Toplam artış: 6 × 4 = +24°C. Son sıcaklık: -12 + 24 = <strong>+12°C</strong>.
+        </div>
+      </div>
+
+      <footer class="page-footer">
+        <span>7. Sınıf Matematik Özel Ders Fasikülü</span>
+        <span>Sayfa 9 / 10</span>
+      </footer>
+    </div>
+
+
+    <!-- ================= SAYFA 10: Beceri Temelli Problemler (46-50) ================= -->
+    <div class="a4-page">
+      <div class="section-banner" style="background: linear-gradient(135deg, #7c3aed, #a855f7);">
+        <span>🌟 BÖLÜM 7: BECERİ TEMELLİ GÜNLÜK HAYAT PROBLEMLERİ</span>
+        <span>Sorular 46 - 50</span>
+      </div>
+
+      <!-- S46 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 46</span>
+          <span class="q-tag">Asansör ve Kat Problemi</span>
+        </div>
+        <div class="q-text">Zemin altında 4 kat bulunan bir binada asansöre <strong>-3. kattan</strong> binen Defne, 9 kat yukarı çıktıktan sonra arkadaşını almak için 4 kat aşağı inmiştir. Defne son durumda kaçıncı kattadır?</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Başlangıç: -3. Yukarı: (-3) + (+9) = +6. Aşağı: (+6) - 4 = <strong>+2. kat</strong>.
+        </div>
+      </div>
+
+      <!-- S47 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 47</span>
+          <span class="q-tag">Yarışma Puanlama Problemi</span>
+        </div>
+        <div class="q-text">Bir yarışmada doğru cevap +10 puan, yanlış cevap -6 puan, boş soru 0 puandır. 20 soruluk sınavda 14 doğru, 4 yanlış ve 2 boş bırakan Kerem toplam kaç puan almıştır?</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">Puan Hesabı:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Doğrular: 14 × (+10) = +140. Yanlışlar: 4 × (-6) = -24. Boşlar: 2 × 0 = 0. Toplam: 140 - 24 = <strong>+116 puan</strong>.
+        </div>
+      </div>
+
+      <!-- S48 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 48</span>
+          <span class="q-tag">Denizaltı ve İrtifa Mesafesi</span>
+        </div>
+        <div class="q-text">Deniz seviyesinin 180 metre altında seyreden bir denizaltı 65 metre yukarı çıkmıştır. Bu sırada deniz seviyesinin 240 metre üzerinde uçan bir uçak ile denizaltı arasındaki <strong>dikey mesafe kaç metredir?</strong></div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Denizaltı konumu: -180 + 65 = -115 metre. Uçak konumu: +240 metre. Dikey mesafe: 240 - (-115) = 240 + 115 = <strong>355 metre</strong>.
+        </div>
+      </div>
+
+      <!-- S49 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 49</span>
+          <span class="q-tag">Esnaf Kâr - Zarar Bilançosu</span>
+        </div>
+        <div class="q-text">Bir bakkalın 5 günlük kâr-zarar durumu: Pazartesi (+450 TL), Salı (-200 TL), Çarşamba (+600 TL), Perşembe (-350 TL) ve Cuma (+500 TL)'dir. Bakkalın haftalık net durumu nedir?</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">Bilanço Hesabı:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Kârlar: 450 + 600 + 500 = +1550 TL. Zararlar: -200 + (-350) = -550 TL. Net: 1550 - 550 = <strong>+1000 TL KÂR</strong>.
+        </div>
+      </div>
+
+      <!-- S50 -->
+      <div class="question-card">
+        <div class="q-head">
+          <span class="q-number">Soru 50</span>
+          <span class="q-tag">Sayı Doğrusunda Zıplama Örüntüsü</span>
+        </div>
+        <div class="q-text">0 noktasından başlayan bir çekirge sırasıyla +4 ileri, -7 geri, +10 ileri, -13 geri, +16 ileri, -19 geri zıplamaktadır. Çekirge <strong>6. zıplayışının sonunda</strong> hangi tam sayıda durur?</div>
+        <div class="work-grid-area">
+          <div class="work-watermark">İşlem Basamakları:</div>
+          <div class="answer-box">SONUÇ: <span class="answer-line"></span></div>
+        </div>
+        <div class="solution-panel">
+          <strong>Çözüm:</strong> Adımlar: (4 - 7) + (10 - 13) + (16 - 19) = (-3) + (-3) + (-3) = <strong>-9</strong> noktasında durur.
+        </div>
+      </div>
+
+      <footer class="page-footer">
+        <span>7. Sınıf Matematik Özel Ders Fasikülü</span>
+        <span>Sayfa 10 / 10</span>
+      </footer>
+    </div>
+
+  </div>
+
+  <script>
+    let showSol = false;
+    function toggleSolutions() {
+      showSol = !showSol;
+      document.body.classList.toggle('show-solutions', showSol);
+      document.getElementById('modeBtn').textContent = showSol ? "🔒 Öğrenci Moduna Geç (Çözümleri Gizle)" : "👁️ Çözümleri ve Cevapları Göster";
+    }
+  </script>
+</body>
+</html>
