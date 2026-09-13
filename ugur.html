@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7. Sınıf Matematik Konu Takip Çizelgesi | Uğur Hoca</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 30px 15px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header-card {
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      color: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.25);
+      margin-bottom: 25px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-card::after {
+      content: "📐";
+      font-size: 110px;
+      position: absolute;
+      right: 20px;
+      bottom: -20px;
+      opacity: 0.18;
+      transform: rotate(-15deg);
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .header-title {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .header-desc {
+      font-size: 14px;
+      opacity: 0.9;
+      max-width: 600px;
+    }
+
+    /* Progress Widget */
+    .progress-section {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+      margin-bottom: 30px;
+      position: sticky;
+      top: 15px;
+      z-index: 100;
+    }
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .progress-count {
+      color: var(--primary);
+      font-size: 18px;
+    }
+
+    .progress-bar-bg {
+      height: 14px;
+      background: #e2e8f0;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #3b82f6, #10b981);
+      width: 0%;
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 999px;
+    }
+
+    /* Unit Cards */
+    .unit-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03);
+      margin-bottom: 24px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .unit-card:hover {
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.07);
+    }
+
+    .unit-header {
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 800;
+      font-size: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .unit-1 { border-top: 5px solid #3b82f6; }
+    .unit-2 { border-top: 5px solid #10b981; }
+    .unit-3 { border-top: 5px solid #f59e0b; }
+    .unit-4 { border-top: 5px solid #ec4899; }
+    .unit-5 { border-top: 5px solid #8b5cf6; }
+    .unit-6 { border-top: 5px solid #14b8a6; }
+
+    .topic-list {
+      list-style: none;
+      padding: 10px 0;
+    }
+
+    .topic-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 20px;
+      transition: background 0.15s;
+      border-bottom: 1px solid #f1f5f9;
+      cursor: pointer;
+    }
+
+    .topic-item:last-child {
+      border-bottom: none;
+    }
+
+    .topic-item:hover {
+      background: #f8fafc;
+    }
+
+    .custom-checkbox {
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      border: 2px solid #cbd5e1;
+      border-radius: 6px;
+      outline: none;
+      cursor: pointer;
+      display: grid;
+      place-content: center;
+      margin-top: 2px;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+
+    .custom-checkbox:checked {
+      background-color: var(--success);
+      border-color: var(--success);
+    }
+
+    .custom-checkbox:checked::before {
+      content: "✓";
+      color: white;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .topic-label {
+      font-size: 14.5px;
+      font-weight: 500;
+      color: var(--text);
+      cursor: pointer;
+      flex-grow: 1;
+      user-select: none;
+      transition: color 0.2s, text-decoration 0.2s;
+    }
+
+    .topic-item.checked .topic-label {
+      color: #94a3b8;
+      text-decoration: line-through;
+    }
+
+    .badge-sub {
+      font-size: 12px;
+      background: #f1f5f9;
+      color: #475569;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    /* Print styling */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      .progress-section {
+        position: static;
+        box-shadow: none;
+        border: 1px solid #ccc;
+      }
+      .unit-card {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+        margin-bottom: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="header-card">
+      <div class="badge">🎯 MEB 2026-2027 MÜFREDATI</div>
+      <h1 class="header-title">7. Sınıf Matematik Konu Takip Çizelgesi</h1>
+      <p class="header-desc">Özel derslerimizde işlediğimiz her konuyu bitirdikçe tıkla, hem üstü çizilsin hem başarı çubuğun dolsun! İlerlemeni anlık olarak kaydeder.</p>
+    </header>
+
+    <!-- Sticky Progress Bar -->
+    <div class="progress-section">
+      <div class="progress-info">
+        <span>Genel İlerleme Durumu</span>
+        <span class="progress-count" id="progressText">0 / 49 Konu (%0)</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progressBar"></div>
+      </div>
+    </div>
+
+    <!-- 1. Ünite -->
+    <div class="unit-card unit-1">
+      <div class="unit-header" style="color: #2563eb;">
+        <span>🟦 1. Ünite: Tam Sayılarla İşlemler</span>
+        <span class="badge-sub">9 Kazanım</span>
+      </div>
+      <ul class="topic-list">
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t1"><label class="topic-label" for="t1">1.1. Tam Sayılarda Toplama İşlemi (Modelleme ve Sayı Doğrusu)</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t2"><label class="topic-label" for="t2">1.2. Tam Sayılarda Toplama İşleminin Özellikleri (Değişme, Birleşme, Ters Eleman)</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t3"><label class="topic-label" for="t3">1.3. Tam Sayılarda Çıkarma İşlemi ve Toplamaya Dönüşüm Kuralı</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t4"><label class="topic-label" for="t4">1.4. Tam Sayılarda Çarpma İşlemi ve İşaret Kuralları</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t5"><label class="topic-label" for="t5">1.5. Tam Sayılarda Bölme İşlemi ve Özellikleri</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t6"><label class="topic-label" for="t6">1.6. Tam Sayıların Kuvvetleri (Negatif Sayıların Tek/Çift Kuvveti ve Parantez Kuralı)</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t7"><label class="topic-label" for="t7">1.7. Tam Sayılarla İşlem Önceliği ve Dört İşlem Uygulamaları</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t8"><label class="topic-label" for="t8">1.8. Tam Sayı Problemleri (Asansör, Termometre, Borç-Alacak Senaryoları)</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t9"><label class="topic-label" for="t9">1.9. Beceri Temelli / Yeni Nesil Soru Çözümü & 1. Ünite Değerlendirmesi</label></li>
+      </ul>
+    </div>
+
+    <!-- 2. Ünite -->
+    <div class="unit-card unit-2">
+      <div class="unit-header" style="color: #059669;">
+        <span>🟩 2. Ünite: Rasyonel Sayılar ve İşlemler</span>
+        <span class="badge-sub">12 Kazanım</span>
+      </div>
+      <ul class="topic-list">
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t10"><label class="topic-label" for="t10">2.1. Rasyonel Sayı Kavramı ve Tanımsızlık Kuralı (Payda Sıfır Olamaz)</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t11"><label class="topic-label" for="t11">2.2. Rasyonel Sayıların Sayı Doğrusunda Gösterimi</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t12"><label class="topic-label" for="t12">2.3. Rasyonel Sayıların Ondalık Gösterimi ve Devirli Ondalık Açılımlar</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t13"><label class="topic-label" for="t13">2.4. Devirli Ondalık Sayıları Rasyonel Sayıya Dönüştürme</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t14"><label class="topic-label" for="t14">2.5. Rasyonel Sayılarda Sıralama ve Karşılaştırma Yöntemleri</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t15"><label class="topic-label" for="t15">2.6. Rasyonel Sayılarla Toplama ve Çıkarma İşlemleri</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t16"><label class="topic-label" for="t16">2.7. Rasyonel Sayılarla Çarpma İşlemi ve Sadeleştirme Taktiği</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t17"><label class="topic-label" for="t17">2.8. Rasyonel Sayılarla Bölme İşlemi (Ters Çevir Çarp Kuralı)</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t18"><label class="topic-label" for="t18">2.9. Rasyonel Sayıların Kareleri ve Küpleri</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t19"><label class="topic-label" for="t19">2.10. Merdivenli Kesirler ve Çok Adımlı İşlemler</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t20"><label class="topic-label" for="t20">2.11. Rasyonel Sayı Problemleri (Parça-Bütün İlişkisi)</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t21"><label class="topic-label" for="t21">2.12. Beceri Temelli / Yeni Nesil Rasyonel Sayı Soruları</label></li>
+      </ul>
+    </div>
+
+    <!-- 3. Ünite -->
+    <div class="unit-card unit-3">
+      <div class="unit-header" style="color: #d97706;">
+        <span>🟨 3. Ünite: Cebirsel İfadeler ve Denklemler</span>
+        <span class="badge-sub">8 Kazanım</span>
+      </div>
+      <ul class="topic-list">
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t22"><label class="topic-label" for="t22">3.1. Cebirsel İfadelerde Benzer Terimler, Toplama ve Çıkarma</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t23"><label class="topic-label" for="t23">3.2. Bir Doğal Sayı ile Cebirsel İfadeyi Çarpma (Paranteze Dağılma)</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t24"><label class="topic-label" for="t24">3.3. Sayı Örüntüleri ve Genel Kural (n'li Formül) Bulma</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t25"><label class="topic-label" for="t25">3.4. Eşitliğin Korunumu ve Terazi Mantığı</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t26"><label class="topic-label" for="t26">3.5. Birinci Dereceden Bir Bilinmeyenli Denklem Kurma</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t27"><label class="topic-label" for="t27">3.6. Birinci Dereceden Bir Bilinmeyenli Denklem Çözme (Karşıya Atma)</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t28"><label class="topic-label" for="t28">3.7. Denklem Problemleri (Sayı, Yaş, Para ve Adım Problemleri)</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t29"><label class="topic-label" for="t29">3.8. Beceri Temelli / Yeni Nesil Denklem Soruları</label></li>
+      </ul>
+    </div>
+
+    <!-- 4. Ünite -->
+    <div class="unit-card unit-4">
+      <div class="unit-header" style="color: #db2777;">
+        <span>🟧 4. Ünite: Oran-Orantı ve Yüzdeler</span>
+        <span class="badge-sub">9 Kazanım</span>
+      </div>
+      <ul class="topic-list">
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t30"><label class="topic-label" for="t30">4.1. Oran Kavramı ve Orantı Sabiti (k)</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t31"><label class="topic-label" for="t31">4.2. Doğru Orantı ve Çapraz Çarpım Kuralı</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t32"><label class="topic-label" for="t32">4.3. Ters Orantı ve Karşılıklı Çarpım Kuralı</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t33"><label class="topic-label" for="t33">4.4. Günlük Hayatta Oran-Orantı Problemleri</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t34"><label class="topic-label" for="t34">4.5. Bir Sayının İstenen Yüzdesini Hesaplama</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t35"><label class="topic-label" for="t35">4.6. Yüzdesi Verilen Sayının Tamamını Bulma</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t36"><label class="topic-label" for="t36">4.7. Yüzde ile Artırma ve Azaltma (Zam, İndirim ve KDV)</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t37"><label class="topic-label" for="t37">4.8. Alış, Satış, Kâr ve Zarar Problemleri</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t38"><label class="topic-label" for="t38">4.9. Beceri Temelli / Yeni Nesil Yüzde ve Orantı Soruları</label></li>
+      </ul>
+    </div>
+
+    <!-- 5. Ünite -->
+    <div class="unit-card unit-5">
+      <div class="unit-header" style="color: #7c3aed;">
+        <span>🟪 5. Ünite: Doğrular, Açılar, Çokgenler ve Çember</span>
+        <span class="badge-sub">8 Kazanım</span>
+      </div>
+      <ul class="topic-list">
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t39"><label class="topic-label" for="t39">5.1. Açıortay ve Paralel Doğruların Kesenle Yaptığı Açılar</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t40"><label class="topic-label" for="t40">5.2. Z, U, M, Kalem Ucu ve Zikzak Kuralları</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t41"><label class="topic-label" for="t41">5.3. Düzgün Çokgenler, İç Açı ve Dış Açı Özellikleri</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t42"><label class="topic-label" for="t42">5.4. Özel Dörtgenler (Paralelkenar, Eşkenar Dörtgen, Yamuk)</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t43"><label class="topic-label" for="t43">5.5. Eşkenar Dörtgen ve Yamukta Alan Hesaplama</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t44"><label class="topic-label" for="t44">5.6. Çemberde Merkez Açı ve Gördüğü Yay İlişkisi</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t45"><label class="topic-label" for="t45">5.7. Çemberin Çevresi ve Yay Uzunluğu Hesaplama</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t46"><label class="topic-label" for="t46">5.8. Dairenin ve Daire Diliminin Alanı</label></li>
+      </ul>
+    </div>
+
+    <!-- 6. Ünite -->
+    <div class="unit-card unit-6">
+      <div class="unit-header" style="color: #0d9488;">
+        <span>🟫 6. Ünite: Veri Analizi ve Cisimlerin Görünümü</span>
+        <span class="badge-sub">3 Kazanım</span>
+      </div>
+      <ul class="topic-list">
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t47"><label class="topic-label" for="t47">6.1. Çizgi ve Daire Grafiği Yorumlama / Dönüştürme</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t48"><label class="topic-label" for="t48">6.2. Aritmetik Ortalama, Ortanca (Medyan) ve Tepe Değer (Mod)</label></li>
+        <li class="topic-item"><input type="checkbox" class="custom-checkbox" id="t49"><label class="topic-label" for="t49">6.3. Üç Boyutlu Cisimlerin Farklı Yönlerden Görünümleri</label></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    const checkboxes = document.querySelectorAll('.custom-checkbox');
+    const progressBar = document.getElementById('progressBar');
+    const progressText = document.getElementById('progressText');
+    const total = checkboxes.length;
+
+    function updateProgress() {
+      let checkedCount = 0;
+      checkboxes.forEach(cb => {
+        const item = cb.closest('.topic-item');
+        if (cb.checked) {
+          checkedCount++;
+          item.classList.add('checked');
+          localStorage.setItem(cb.id, '1');
+        } else {
+          item.classList.remove('checked');
+          localStorage.removeItem(cb.id);
+        }
+      });
+
+      const percentage = Math.round((checkedCount / total) * 100);
+      progressBar.style.width = percentage + '%';
+      progressText.textContent = `${checkedCount} / ${total} Konu (%${percentage})`;
+    }
+
+    // Load saved states
+    checkboxes.forEach(cb => {
+      if (localStorage.getItem(cb.id) === '1') {
+        cb.checked = true;
+      }
+      cb.addEventListener('change', updateProgress);
+      cb.closest('.topic-item').addEventListener('click', (e) => {
+        if (e.target !== cb) {
+          cb.checked = !cb.checked;
+          updateProgress();
+        }
+      });
+    });
+
+    updateProgress();
+  </script>
+</body>
+</html>

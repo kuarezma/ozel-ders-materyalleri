@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Özel Ders Portal">
+  <meta name="theme-color" content="#4f46e5">
+  <title>Özel Ders Matematik Portalı | Uğur Hoca & Demet Hoca</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --demet: #db2777;
+      --ugur: #2563eb;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --border: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #f1f5f9;
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 25px 15px 40px 15px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 520px;
+    }
+
+    .header-box {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #e0e7ff;
+      color: #4338ca;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 900;
+      color: #1e1b4b;
+      margin-bottom: 6px;
+    }
+
+    p {
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    .portal-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .portal-card {
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      text-decoration: none;
+      color: inherit;
+      border: 1.5px solid var(--border);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: all 0.2s;
+    }
+
+    .portal-card:active {
+      transform: scale(0.98);
+    }
+
+    .icon-box {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      flex-shrink: 0;
+    }
+
+    .card-demet {
+      border-color: #fbcfe8;
+      background: linear-gradient(135deg, #ffffff, #fff1f2);
+    }
+    .card-demet .icon-box {
+      background: linear-gradient(135deg, #db2777, #9333ea);
+      color: white;
+      box-shadow: 0 4px 12px rgba(219, 39, 119, 0.3);
+    }
+
+    .card-ugur {
+      border-color: #bfdbfe;
+      background: linear-gradient(135deg, #ffffff, #eff6ff);
+    }
+    .card-ugur .icon-box {
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+      color: white;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+
+    .card-test {
+      border-color: #e2e8f0;
+    }
+    .card-test .icon-box {
+      background: #f1f5f9;
+    }
+
+    .card-info h3 {
+      font-size: 16px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 2px;
+    }
+
+    .card-info p {
+      font-size: 12.5px;
+      color: #64748b;
+      line-height: 1.35;
+    }
+
+    .arrow {
+      margin-left: auto;
+      font-size: 18px;
+      color: #cbd5e1;
+      font-weight: 800;
+    }
+
+    .tip-box {
+      margin-top: 25px;
+      background: #fefce8;
+      border: 1px solid #fef08a;
+      border-radius: 16px;
+      padding: 14px 16px;
+      font-size: 12.5px;
+      color: #854d0e;
+      line-height: 1.45;
+    }
+
+    .tip-box strong {
+      color: #713f12;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header-box">
+      <span class="badge">📐 ORTAOKUL MATEMATİK</span>
+      <h1>Özel Ders Takip Portalı</h1>
+      <p>Telefondan ve tabletten tek dokunuşla takip sayfalarına ulaşın.</p>
+    </div>
+
+    <div class="portal-grid">
+
+      <!-- Demet Hoca Mobil Çizelge -->
+      <a href="demet.html" class="portal-card card-demet">
+        <div class="icon-box">🌸</div>
+        <div class="card-info">
+          <h3>Demet Hoca Takip Çizelgesi</h3>
+          <p>Mobil & Tablet dokunmatik arayüz, çoklu öğrenci profili ve WhatsApp raporlama</p>
+        </div>
+        <span class="arrow">➔</span>
+      </a>
+
+      <!-- Uğur Hoca Çizelge -->
+      <a href="ugur.html" class="portal-card card-ugur">
+        <div class="icon-box">📘</div>
+        <div class="card-info">
+          <h3>Uğur Hoca Takip Çizelgesi</h3>
+          <p>Masaüstü ve yazdırılabilir 7. sınıf konu takip sistemi</p>
+        </div>
+        <span class="arrow">➔</span>
+      </a>
+
+      <!-- 6'dan 7'ye Geçiş Testi -->
+      <a href="7.%20S%C4%B1n%C4%B1f/02_Gecis_Testi_Yazdirilabilir.html" class="portal-card card-test">
+        <div class="icon-box">📝</div>
+        <div class="card-info">
+          <h3>6'dan 7'ye Geçiş Testi</h3>
+          <p>20 soruluk hazırbulunuşluk sınavı (Öğrenci & Öğretmen çözümlü modu)</p>
+        </div>
+        <span class="arrow">➔</span>
+      </a>
+
+      <!-- Renkli Defter Notu -->
+      <a href="7.%20S%C4%B1n%C4%B1f/03_Renkli_Defter_Notu_Tam_Sayilar.html" class="portal-card card-test">
+        <div class="icon-box">📓</div>
+        <div class="card-info">
+          <h3>Tam Sayılar Akıl Defteri</h3>
+          <p>1 sayfalık spiralli, renkli bilgi barlı özet defter notu</p>
+        </div>
+        <span class="arrow">➔</span>
+      </a>
+
+    </div>
+
+    <div class="tip-box">
+      📲 <strong>İpucu:</strong> Bu sayfayı Safari'de açtıktan sonra <strong>Paylaş ➔ Ana Ekrana Ekle</strong> diyerek telefonunuza mobil uygulama simgesi olarak ekleyebilirsiniz!
+    </div>
+  </div>
+
+</body>
+</html>
