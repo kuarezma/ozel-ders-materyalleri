@@ -25,5 +25,11 @@ Bu kurallar bu depoda üretilecek tüm matematik çalışma kağıtları, testle
   - 3 sorulu sayfalarda: **175px - 200px**.
   - 4 sorulu sayfalarda: **130px - 150px**.
 
-### 4. Öğrenciye Dağıtım Ciddiyeti ve Sıfır Hata
+### 4. Kusursuz Yazdırma ve A4 Kilitleme Standardı (Print Geometry Standard)
+- Yazdırma ve PDF çıktılarında `@page { size: A4 portrait; margin: 0; }` kullanılmalıdır. Kenar boşlukları doğrudan `.a4-page` container'ının padding değeri (`8mm 12mm 8mm 12mm`) ile milimetrik yönetilmelidir.
+- `.a4-page` sınıfı baskıda `width: 210mm; height: 297mm; max-height: 297mm; box-sizing: border-box; overflow: hidden; page-break-after: always; break-after: page;` ile kilitlenmelidir.
+- Flex child elemanlarına (`.page-questions-wrap`, `.question-card`, `.work-grid-area`) mutlaka `min-height: 0 !important;` verilmeli; böylece flex taşmaları ve sayfayı sonraki sayfaya iten domino kaymaları kesin olarak engellenmelidir.
+
+### 5. Öğrenciye Dağıtım Ciddiyeti ve Sıfır Hata
 - "Bu materyal doğrudan sınıfta öğrencilere basılıp dağıtılacak" ciddiyetiyle hareket edilmeli; kontrol edilmeden, ham kod kalıntısı veya sayfa taşması içeren hiçbir ürün tamamlandı denilerek teslim edilmemelidir.
+
