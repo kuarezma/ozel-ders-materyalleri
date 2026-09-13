@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8. Sınıf Aralarında Asal Sayılar, EBOB - EKOK 40 Soru Testi | Demet Hoca</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=JetBrains+Mono:wght@600;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4338ca;
+      --primary-dark: #312e81;
+      --primary-light: #eef2ff;
+      --accent: #f59e0b;
+      --success: #15803d;
+      --border: #cbd5e1;
+      --bg: #f8fafc;
+      --grid-dot: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #cbd5e1;
+      color: #0f172a;
+      line-height: 1.35;
+      padding: 20px 10px;
+    }
+
+    /* Üst Kontrol Çubuğu */
+    .toolbar {
+      max-width: 210mm;
+      margin: 0 auto 20px auto;
+      background: white;
+      padding: 12px 20px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 15px;
+      z-index: 1000;
+    }
+
+    .toolbar-info {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 13px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-success { background: var(--success); color: white; }
+    .btn-outline { background: #f1f5f9; color: #1e293b; border: 1.5px solid #cbd5e1; }
+    .btn:hover { transform: translateY(-1px); opacity: 0.95; }
+
+    /* A4 Kapsayıcısı */
+    .fascicle-container {
+      max-width: 210mm;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    /* A4 SAYFASI - BASKI KİLİTLİ STANDARD */
+    .a4-page {
+      background: white;
+      width: 210mm;
+      height: 297mm;
+      max-height: 297mm;
+      padding: 8mm 12mm 8mm 12mm;
+      border-radius: 4px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-sizing: border-box;
+      overflow: hidden !important;
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+      page-break-after: always !important;
+      break-after: page !important;
+    }
+
+    /* Sayfa Başlıkları */
+    .page-main-header {
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      padding: 8px 14px;
+      margin-bottom: 6px;
+      background: #fcfaff;
+      flex-shrink: 0;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px dashed #cbd5e1;
+      padding-bottom: 5px;
+      margin-bottom: 5px;
+    }
+
+    .header-title-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .school-title {
+      font-size: 11px;
+      font-weight: 800;
+      color: #64748b;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .header-title {
+      font-size: 15px;
+      font-weight: 900;
+      color: var(--primary);
+      letter-spacing: -0.3px;
+    }
+
+    .teacher-badge {
+      font-size: 11px;
+      font-weight: 800;
+      background: #ede9fe;
+      color: #4c1d95;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid #ddd6fe;
+    }
+
+    .student-info-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 10px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #334155;
+    }
+
+    .dot-line {
+      border-bottom: 1.2px dotted #94a3b8;
+      display: inline-block;
+      min-width: 80px;
+    }
+
+    .mini-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 4px;
+      margin-bottom: 4px;
+      border-bottom: 1.5px solid #e2e8f0;
+      font-size: 10.5px;
+      font-weight: 800;
+      color: #64748b;
+      flex-shrink: 0;
+    }
+
+    /* Soruları Sayfa Boyuna Eşit Yayan Kapsayıcı */
+    .page-questions-wrap {
+      flex: 1 1 0;
+      min-height: 0 !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 7px;
+      margin: 2px 0 4px 0;
+    }
+
+    /* Soru Kartı */
+    .question-card {
+      border: 1.2px solid #cbd5e1;
+      border-radius: 7px;
+      padding: 6px 10px;
+      background: white;
+      box-sizing: border-box;
+      flex: 1 1 0;
+      min-height: 0 !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+    }
+
+    .q-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3px;
+      flex-shrink: 0;
+    }
+
+    .q-badge {
+      background: var(--primary);
+      color: white;
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 1.5px 7px;
+      border-radius: 4px;
+    }
+
+    .q-tag {
+      font-size: 9.5px;
+      background: #f5f3ff;
+      color: #4338ca;
+      padding: 1.5px 6px;
+      border-radius: 4px;
+      font-weight: 800;
+      border: 1px solid #e0e7ff;
+    }
+
+    .q-body {
+      margin-bottom: 3px;
+      flex-shrink: 0;
+    }
+
+    .q-text {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #1e293b;
+      line-height: 1.35;
+    }
+
+    .q-text b {
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .math-inline {
+      font-family: 'JetBrains Mono', monospace;
+      background: #f8fafc;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-weight: 700;
+      color: #4338ca;
+      border: 1px solid #e2e8f0;
+      display: inline-block;
+    }
+
+    /* Matematiksel Kesir */
+    .frac {
+      display: inline-flex;
+      flex-direction: column;
+      vertical-align: middle;
+      text-align: center;
+      font-size: 0.92em;
+      padding: 0 3px;
+      line-height: 1.05;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+    }
+
+    .frac .top {
+      border-bottom: 1.2px solid currentColor;
+      padding-bottom: 1px;
+    }
+
+    .frac .bottom {
+      padding-top: 1px;
+    }
+
+    /* Şıklar Tablosu */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      margin: 3px 0;
+      flex-shrink: 0;
+    }
+
+    .opt {
+      border: 1.2px solid #e2e8f0;
+      border-radius: 5px;
+      padding: 3px 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #334155;
+      background: #f8fafc;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .opt-letter {
+      font-weight: 900;
+      color: var(--primary);
+    }
+
+    /* Öğretmen Modunda Doğru Şık Vurgusu */
+    body.teacher-mode .opt.correct {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      color: #14532d !important;
+      box-shadow: 0 0 0 1px #16a34a;
+    }
+
+    body.teacher-mode .opt.correct .opt-letter {
+      color: #15803d !important;
+    }
+
+    /* Çözüm ve İşlem Alanı */
+    .work-grid-area {
+      flex: 1 1 0;
+      min-height: 0 !important;
+      border: 1.2px dashed #cbd5e1;
+      border-radius: 6px;
+      background-color: #fffdfa;
+      background-image: radial-gradient(var(--grid-dot) 1.1px, transparent 1.1px);
+      background-size: 13px 13px;
+      padding: 4px 8px;
+      position: relative;
+      margin-top: 3px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+    }
+
+    .work-label {
+      font-family: 'Caveat', cursive;
+      font-size: 13.5px;
+      color: #94a3b8;
+      pointer-events: none;
+    }
+
+    /* Çözümlü Öğretmen Paneli */
+    .teacher-solution-box {
+      display: none;
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+      border-radius: 5px;
+      padding: 4px 8px;
+      font-size: 11px;
+      color: #166534;
+      line-height: 1.3;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    body.teacher-mode .teacher-solution-box {
+      display: block;
+    }
+
+    body.teacher-mode .work-grid-area {
+      background-image: none;
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+    }
+
+    /* Sayfa Altlığı */
+    .page-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1.5px solid #e2e8f0;
+      padding-top: 3px;
+      font-size: 10px;
+      font-weight: 700;
+      color: #94a3b8;
+      flex-shrink: 0;
+    }
+
+    /* Sayfa 11: Optik Form ve Değerlendirme Tablosu */
+    .optical-section {
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 8px 12px;
+      background: #fcfaff;
+      margin: 6px 0;
+      flex-shrink: 0;
+    }
+
+    .optical-title {
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .optical-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      font-size: 10.5px;
+      font-weight: 700;
+    }
+
+    .opt-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5px;
+    }
+
+    .opt-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1px 4px;
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+    }
+
+    .opt-num {
+      width: 18px;
+      font-size: 10px;
+      color: var(--primary);
+      font-weight: 900;
+    }
+
+    .bubbles {
+      display: flex;
+      gap: 3px;
+    }
+
+    .bubble {
+      width: 14px;
+      height: 14px;
+      border: 1.2px solid #64748b;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8px;
+      font-weight: 800;
+      color: #475569;
+    }
+
+    body.teacher-mode .bubble.filled {
+      background: #15803d;
+      color: white;
+      border-color: #15803d;
+    }
+
+    /* Başarı Analiz Tablosu */
+    .analysis-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10.5px;
+      margin-top: 6px;
+    }
+
+    .analysis-table th, .analysis-table td {
+      border: 1px solid #cbd5e1;
+      padding: 4px 6px;
+      text-align: center;
+    }
+
+    .analysis-table th {
+      background: #ede9fe;
+      font-weight: 800;
+      color: #312e81;
+    }
+
+    .eval-box {
+      border: 1.2px dashed #94a3b8;
+      border-radius: 6px;
+      padding: 6px 10px;
+      background: #fffdfa;
+      margin-top: 6px;
+      font-size: 11px;
+    }
+
+    .signature-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      font-weight: 700;
+      color: #334155;
+    }
+
+    /* BASKI STİLLERİ (A4 KİLİTLİ) */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+
+      body {
+        background: white !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      .toolbar {
+        display: none !important;
+      }
+
+      .fascicle-container {
+        gap: 0 !important;
+        max-width: 100% !important;
+      }
+
+      .a4-page {
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+        width: 210mm !important;
+        height: 297mm !important;
+        max-height: 297mm !important;
+        padding: 8mm 12mm 8mm 12mm !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        overflow: hidden !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Üst Araç Çubuğu -->
+  <div class="toolbar">
+    <div class="toolbar-info">
+      📘 <b>8. Sınıf Matematik</b> | Aralarında Asal Sayılar, EBOB - EKOK (40 Soru)
+    </div>
+    <div class="toolbar-actions">
+      <button class="btn btn-outline" id="toggleModeBtn" onclick="toggleMode()">
+        💡 Çözümlü Öğretmen Moduna Geç
+      </button>
+      <button class="btn btn-primary" onclick="window.print()">
+        🖨️ Yazdır / PDF Kaydet
+      </button>
+    </div>
+  </div>
+
+  <div class="fascicle-container">
+
+    <!-- ================= SAYFA 1 (BAŞLIKLI - 3 SORU) ================= -->
+    <div class="a4-page">
+      <div class="page-main-header">
+        <div class="header-top">
+          <div class="header-title-wrap">
+            <span class="school-title">Yavuz Selim Ortaokulu & Özel Ders Akademisi</span>
+            <h1 class="header-title">8. SINIF LGS MATEMATİK | ARALARINDA ASAL SAYILAR, EBOB VE EKOK TESTİ</h1>
+          </div>
+          <div class="teacher-badge">Demet GÜRHAN YAŞAYAN • Matematik Öğr.</div>
+        </div>
+        <div class="student-info-grid">
+          <div>Öğrenci: <span class="dot-line" style="min-width: 130px;"></span></div>
+          <div>Tarih: <span class="dot-line"></span></div>
+          <div>Süre: <b>80 Dk.</b></div>
+          <div>Puan: <span class="dot-line"></span> / 100</div>
+        </div>
+      </div>
+
+      <div class="page-questions-wrap">
+        <!-- Soru 1 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 1</span>
+            <span class="q-tag">Aralarında Asallık Tanımı</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">Aşağıda verilen sayı çiftlerinden hangisi <b>aralarında asaldır?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 14 ile 21</div>
+            <div class="opt correct"><span class="opt-letter">B)</span> 15 ile 26</div>
+            <div class="opt"><span class="opt-letter">C)</span> 27 ile 51</div>
+            <div class="opt"><span class="opt-letter">D)</span> 33 ile 77</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> 1'den başka ortak pozitif böleni olmayan sayılar aralarında asaldır. 14 ile 21'in ortak böleni 7; 27 ile 51'in ortak böleni 3; 33 ile 77'nin ortak böleni 11'dir. 15 (3×5) ile 26 (2×13) sayılarının 1 dışında hiçbir ortak böleni yoktur. (Doğru Cevap: B)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 2 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 2</span>
+            <span class="q-tag">Ardışıklık ve Asallık Kuralı</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">Aralarında asal sayılarla ilgili olarak aşağıda verilen ifadelerden hangisi <b>daima doğrudur?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> Sayıların ikisi de asal olmalıdır.</div>
+            <div class="opt"><span class="opt-letter">B)</span> Tüm çift sayılar aralarında asaldır.</div>
+            <div class="opt correct"><span class="opt-letter">C)</span> Ardışık iki doğal sayı aralarında asaldır.</div>
+            <div class="opt"><span class="opt-letter">D)</span> İki tek sayı daima aralarında asaldır.</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> Ardışık pozitif tam sayıların (n ve n+1) 1'den başka ortak pozitif böleni olamaz; bu nedenle daima aralarında asaldır (Örn: 8 ve 9 asal olmasalar da aralarında asaldır). Çift sayılar 2'ye bölünür; 9 ile 15 tek olduğu halde 3'e bölünür. (Doğru Cevap: C)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 3 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 3</span>
+            <span class="q-tag">Oran ve Sadeleştirme</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">
+              a ve b pozitif tam sayılar olmak üzere, (a - 2) ile (b + 3) aralarında asaldır.<br>
+              <span class="frac"><span class="top">a - 2</span><span class="bottom">b + 3</span></span> = <span class="frac"><span class="top">28</span><span class="bottom">44</span></span>
+              olduğuna göre, <b>a + b toplamı kaçtır?</b>
+            </p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 15</div>
+            <div class="opt correct"><span class="opt-letter">B)</span> 17</div>
+            <div class="opt"><span class="opt-letter">C)</span> 19</div>
+            <div class="opt"><span class="opt-letter">D)</span> 21</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> (a - 2) ve (b + 3) aralarında asal olduğundan kesir en sade hale getirilir: 28 ÷ 4 = 7 ve 44 ÷ 4 = 11. Buradan a - 2 = 7 ➔ a = 9; b + 3 = 11 ➔ b = 8 bulunur. a + b = 9 + 8 = 17'dir. (Doğru Cevap: B)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>8. Sınıf LGS Matematik • Özel Ders Çalışma Yaprağı</span>
+        <span>Sayfa 1 / 11</span>
+      </div>
+    </div>
+
+    <!-- ================= SAYFA 2 (4 SORU: 4, 5, 6, 7) ================= -->
+    <div class="a4-page">
+      <div class="mini-header">
+        <span>BÖLÜM 1: ARALARINDA ASAL SAYILAR</span>
+        <span>Demet GÜRHAN YAŞAYAN • Matematik Öğretmeni</span>
+      </div>
+
+      <div class="page-questions-wrap">
+        <!-- Soru 4 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 4</span>
+            <span class="q-tag">Rakam İnceleme</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">A bir rakam olmak üzere, iki basamaklı <b>4A</b> sayısı ile <b>18</b> sayısı aralarında asaldır. Buna göre <b>A'nın alabileceği değerler toplamı kaçtır?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 16</div>
+            <div class="opt"><span class="opt-letter">B)</span> 18</div>
+            <div class="opt correct"><span class="opt-letter">C)</span> 20</div>
+            <div class="opt"><span class="opt-letter">D)</span> 24</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> 18 = 2 × 3² olduğundan 4A sayısı 2'ye ve 3'e bölünemez. Çift rakamlar elenir; A = 1, 3, 5, 7, 9 olabilir. 45 sayısı 3'e bölündüğü için 5 elenir. Kalanlar: 1, 3, 7, 9. Toplam = 1 + 3 + 7 + 9 = 20. (Doğru Cevap: C)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 5 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 5</span>
+            <span class="q-tag">Çarpan ve Çarpım Analizi</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">x ve y pozitif tam sayılardır. x ile y aralarında asal ve <b>x · y = 48</b>'dir. Buna göre <b>x + y toplamının alabileceği en küçük değer kaçtır?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 14</div>
+            <div class="opt"><span class="opt-letter">B)</span> 16</div>
+            <div class="opt correct"><span class="opt-letter">C)</span> 19</div>
+            <div class="opt"><span class="opt-letter">D)</span> 49</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> 48'in aralarında asal çarpan çiftleri: 1 × 48 (Toplam=49) ve 3 × 16 (Toplam=19). Diğer çiftler (2×24, 4×12, 6×8) aralarında asal değildir. En küçük toplam 19'dur. (Doğru Cevap: C)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 6 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 6</span>
+            <span class="q-tag">Kart Seçme & Asal Çarpan</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">Üzerinde <b>12, 25, 33, 49, 65</b> sayılarının yazılı olduğu 5 karttan biri seçiliyor. Seçilen karttaki sayı ile geriye kalan 4 karttaki sayıların tamamı <b>aralarında asaldır</b>. Buna göre <b>seçilen karttaki sayı kaçtır?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 12</div>
+            <div class="opt"><span class="opt-letter">B)</span> 25</div>
+            <div class="opt"><span class="opt-letter">C)</span> 33</div>
+            <div class="opt correct"><span class="opt-letter">D)</span> 49</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> 12 ile 33 (3 çarpanı), 25 ile 65 (5 çarpanı) ortak asallara sahiptir. 49 = 7²'dir ve diğer sayıların hiçbirinde 7 asal çarpanı yoktur. Dolayısıyla 49 diğer 4 sayıyla da aralarında asaldır. (Doğru Cevap: D)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 7 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 7</span>
+            <span class="q-tag">Aralarında Asal Kenarlar & Çevre</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">Alanı <b>70 cm²</b> olan bir dikdörtgenin kenar uzunlukları santimetre cinsinden aralarında asal birer tam sayıdır. Buna göre bu dikdörtgenin çevresi <b>en az kaç santimetredir?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt correct"><span class="opt-letter">A)</span> 34</div>
+            <div class="opt"><span class="opt-letter">B)</span> 38</div>
+            <div class="opt"><span class="opt-letter">C)</span> 74</div>
+            <div class="opt"><span class="opt-letter">D)</span> 142</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> Kenarlar a ve b; a · b = 70. Çevrenin en az olması için sayılar birbirine en yakın seçilir: 7 ve 10 (EBOB=1). Çevre = 2 · (7 + 10) = 2 · 17 = 34 cm bulunur. (Doğru Cevap: A)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>8. Sınıf LGS Matematik • Özel Ders Çalışma Yaprağı</span>
+        <span>Sayfa 2 / 11</span>
+      </div>
+    </div>
+
+    <!-- ================= SAYFA 3 (4 SORU: 8, 9, 10, 11) ================= -->
+    <div class="a4-page">
+      <div class="mini-header">
+        <span>BÖLÜM 1: ARALARINDA ASAL SAYILAR</span>
+        <span>Demet GÜRHAN YAŞAYAN • Matematik Öğretmeni</span>
+      </div>
+
+      <div class="page-questions-wrap">
+        <!-- Soru 8 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 8</span>
+            <span class="q-tag">Şifreli Kasa Kurgusu</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">
+              Dört haneli kasanın şifresi iki basamaklı <b>AB</b> ve <b>CD</b> sayılarıdır.<br>
+              • AB sayısı 20 ile 30 arasında bir tam kare sayıdır.<br>
+              • CD sayısı ile AB sayısı aralarında asaldır ve CD sayısı 40'tan küçük bir asal sayıdır.<br>
+              Buna göre <b>CD sayısının alabileceği en büyük değer kaçtır?</b>
+            </p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 29</div>
+            <div class="opt"><span class="opt-letter">B)</span> 31</div>
+            <div class="opt correct"><span class="opt-letter">C)</span> 37</div>
+            <div class="opt"><span class="opt-letter">D)</span> 39</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> 20 ile 30 arasındaki tam kare 25'tir (5²=25). CD sayısı 40'tan küçük asal sayı olmalı ve 5 çarpanı içermemelidir. 40'tan küçük en büyük asal sayı 37'dir. 37 ile 25 aralarında asaldır. (Doğru Cevap: C)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 9 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 9</span>
+            <span class="q-tag">Ardışık Tek Sayılar Kuralı</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">
+              A ve B ardışık iki pozitif tek sayıdır (A &lt; B).<br>
+              I. EBOB(A, B) = 1'dir. &nbsp;&nbsp; II. EKOK(A, B) = A · B'dir. &nbsp;&nbsp; III. A + B daima çift sayıdır.<br>
+              <b>ifadelerinden hangileri kesinlikle doğrudur?</b>
+            </p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> Yalnız I</div>
+            <div class="opt"><span class="opt-letter">B)</span> I ve II</div>
+            <div class="opt"><span class="opt-letter">C)</span> II ve III</div>
+            <div class="opt correct"><span class="opt-letter">D)</span> I, II ve III</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> Ardışık tek sayılar daima aralarında asaldır (Örn: 9 ile 11). Dolayısıyla EBOB=1 ve EKOK=A·B'dir. İki tek sayının toplamı da daima çifttir. Her 3 önerme de kesinlikle doğrudur. (Doğru Cevap: D)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 10 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 10</span>
+            <span class="q-tag">Çarpım ve Toplam Analizi</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">Aralarında asal iki doğal sayının çarpımı <b>120</b>'dir. Buna göre bu iki sayının toplamı <b>en az kaçtır?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt correct"><span class="opt-letter">A)</span> 23</div>
+            <div class="opt"><span class="opt-letter">B)</span> 29</div>
+            <div class="opt"><span class="opt-letter">C)</span> 43</div>
+            <div class="opt"><span class="opt-letter">D)</span> 121</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> 120 = 2³ × 3 × 5. Aralarında asal çarpan grupları: 1 ve 120 (T=121), 3 ve 40 (T=43), 5 ve 24 (T=29), 8 ve 15 (T=23). En küçük toplam 8 + 15 = 23 bulunur. (Doğru Cevap: A)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 11 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 11</span>
+            <span class="q-tag">Cebirsel İfadelerde Asallık</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">x ve y pozitif tam sayılardır. (2x + 1) ile (y - 1) aralarında asaldır.<br>
+            <b>(2x + 1) · (y - 1) = 35</b> ve <b>y &gt; 5</b> olduğuna göre, <b>x + y toplamı kaçtır?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 8</div>
+            <div class="opt correct"><span class="opt-letter">B)</span> 10</div>
+            <div class="opt"><span class="opt-letter">C)</span> 12</div>
+            <div class="opt"><span class="opt-letter">D)</span> 14</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> 35 = 5 × 7. y > 5 olduğundan y - 1 > 4 olmalı; bu yüzden y - 1 = 7 alınır ➔ y = 8. 2x + 1 = 5 ➔ 2x = 4 ➔ x = 2. x + y = 2 + 8 = 10 bulunur. (Doğru Cevap: B)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>8. Sınıf LGS Matematik • Özel Ders Çalışma Yaprağı</span>
+        <span>Sayfa 3 / 11</span>
+      </div>
+    </div>
+
+    <!-- ================= SAYFA 4 (4 SORU: 12, 13, 14, 15) ================= -->
+    <div class="a4-page">
+      <div class="mini-header">
+        <span>BÖLÜM 2: EBOB VE EKOK İŞLEMLERİ & BAĞINTILARI</span>
+        <span>Demet GÜRHAN YAŞAYAN • Matematik Öğretmeni</span>
+      </div>
+
+      <div class="page-questions-wrap">
+        <!-- Soru 12 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 12</span>
+            <span class="q-tag">Forma Numaraları Analizi</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">Dört öğrencinin forma numaraları: <b>Kerem: 16</b>, <b>Leyla: 27</b>, <b>Mert: 35</b>, <b>Nehir: 42</b>'dir. Buna göre hangi iki öğrencinin forma numaraları <b>aralarında asal DEĞİLDİR?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> Kerem ve Mert</div>
+            <div class="opt"><span class="opt-letter">B)</span> Kerem ve Leyla</div>
+            <div class="opt correct"><span class="opt-letter">C)</span> Leyla ve Nehir</div>
+            <div class="opt"><span class="opt-letter">D)</span> Leyla ve Mert</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> Leyla: 27 = 3³; Nehir: 42 = 2 × 3 × 7. Her iki sayı da 3'e tam bölünür (EBOB=3). Dolayısıyla aralarında asal değillerdir. (Doğru Cevap: C)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 13 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 13</span>
+            <span class="q-tag">Asal Çarpan Algoritması</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text"><b>72 ve 90</b> sayılarının En Büyük Ortak Böleni (EBOB) kaçtır?</p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 9</div>
+            <div class="opt"><span class="opt-letter">B)</span> 12</div>
+            <div class="opt correct"><span class="opt-letter">C)</span> 18</div>
+            <div class="opt"><span class="opt-letter">D)</span> 36</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> 72 = 2³ × 3² ve 90 = 2 × 3² × 5. Ortak asal çarpanların küçük üsleri alınır: 2¹ × 3² = 2 × 9 = 18 bulunur. (Doğru Cevap: C)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 14 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 14</span>
+            <span class="q-tag">Üslü Çarpanlarda EKOK / EBOB</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">
+              A = 2³ × 3² × 5 &nbsp;ve&nbsp; B = 2² × 3³ × 7 olduğuna göre,<br>
+              <span class="frac"><span class="top">EKOK(A, B)</span><span class="bottom">EBOB(A, B)</span></span> <b>işleminin sonucu kaçtır?</b>
+            </p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 70</div>
+            <div class="opt"><span class="opt-letter">B)</span> 105</div>
+            <div class="opt correct"><span class="opt-letter">C)</span> 210</div>
+            <div class="opt"><span class="opt-letter">D)</span> 420</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> EKOK = 2³ × 3³ × 5 × 7; EBOB = 2² × 3². Oran: 2^(3-2) × 3^(3-2) × 5 × 7 = 2 × 3 × 35 = 210'dur. (Doğru Cevap: C)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 15 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 15</span>
+            <span class="q-tag">a · b = EBOB · EKOK Bağıntısı</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">Aralarında asal olmayan iki basamaklı iki doğal sayının <b>EBOB'u 6, EKOK'u 120</b>'dir. Bu sayılardan biri <b>24</b> olduğuna göre, <b>diğer sayı kaçtır?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 18</div>
+            <div class="opt"><span class="opt-letter">B)</span> 28</div>
+            <div class="opt correct"><span class="opt-letter">C)</span> 30</div>
+            <div class="opt"><span class="opt-letter">D)</span> 36</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> Sayı 1 · Sayı 2 = EBOB · EKOK. 24 · Sayı 2 = 6 · 120 = 720 ➔ Sayı 2 = 720 ÷ 24 = 30 bulunur. (Doğru Cevap: C)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>8. Sınıf LGS Matematik • Özel Ders Çalışma Yaprağı</span>
+        <span>Sayfa 4 / 11</span>
+      </div>
+    </div>
+
+    <!-- ================= SAYFA 5 (4 SORU: 16, 17, 18, 19) ================= -->
+    <div class="a4-page">
+      <div class="mini-header">
+        <span>BÖLÜM 2: EBOB VE EKOK İŞLEMLERİ & BAĞINTILARI</span>
+        <span>Demet GÜRHAN YAŞAYAN • Matematik Öğretmeni</span>
+      </div>
+
+      <div class="page-questions-wrap">
+        <!-- Soru 16 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 16</span>
+            <span class="q-tag">Kat Bağıntısı</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">b bir pozitif tam sayı olmak üzere, <b>a = 4b</b>'dir.<br>
+            <b>EBOB(a, b) + EKOK(a, b) = 75</b> olduğuna göre, <b>a - b farkı kaçtır?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 30</div>
+            <div class="opt"><span class="opt-letter">B)</span> 40</div>
+            <div class="opt correct"><span class="opt-letter">C)</span> 45</div>
+            <div class="opt"><span class="opt-letter">D)</span> 50</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> Biri diğerinin katı olan sayılarda küçük olan EBOB (b), büyük olan EKOK'tur (4b). b + 4b = 5b = 75 ➔ b = 15, a = 60. a - b = 60 - 15 = 45. (Doğru Cevap: C)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 17 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 17</span>
+            <span class="q-tag">Aralarında Asal Sayılarda EKOK</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">Aralarında asal iki sayının EKOK'u <b>84</b>'tür. Buna göre bu iki sayının toplamı aşağıdakilerden hangisi <b>olabilir?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 20</div>
+            <div class="opt correct"><span class="opt-letter">B)</span> 25</div>
+            <div class="opt"><span class="opt-letter">C)</span> 27</div>
+            <div class="opt"><span class="opt-letter">D)</span> 32</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> Aralarında asal sayıların çarpımı EKOK'a eşittir: a · b = 84. Aralarında asal çarpanlar: 4 ve 21 ➔ 4 + 21 = 25 (Şıklarda var). (Doğru Cevap: B)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 18 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 18</span>
+            <span class="q-tag">Oran ve EBOB Bağıntısı</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">
+              x ve y pozitif tam sayılarının En Büyük Ortak Böleni (EBOB) 8'dir.<br>
+              <span class="frac"><span class="top">x</span><span class="bottom">y</span></span> = <span class="frac"><span class="top">3</span><span class="bottom">5</span></span> olduğuna göre, <b>EKOK(x, y) kaçtır?</b>
+            </p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 96</div>
+            <div class="opt correct"><span class="opt-letter">B)</span> 120</div>
+            <div class="opt"><span class="opt-letter">C)</span> 140</div>
+            <div class="opt"><span class="opt-letter">D)</span> 160</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> 3 ve 5 aralarında asal olduğundan x = 3 · 8 = 24 ve y = 5 · 8 = 40'tır. EKOK(24, 40) = 8 · 3 · 5 = 120 bulunur. (Doğru Cevap: B)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 19 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 19</span>
+            <span class="q-tag">Kalanlı Ortak Kat</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">Hem 15'e hem de 18'e bölündüğünde <b>4 kalanını veren 200'den büyük en küçük doğal sayı kaçtır?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 266</div>
+            <div class="opt"><span class="opt-letter">B)</span> 270</div>
+            <div class="opt correct"><span class="opt-letter">C)</span> 274</div>
+            <div class="opt"><span class="opt-letter">D)</span> 284</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> EKOK(15, 18) = 90. 90'ın 200'den büyük en küçük katı 270'tir. 4 kalanını vermesi için: 270 + 4 = 274 bulunur. (Doğru Cevap: C)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>8. Sınıf LGS Matematik • Özel Ders Çalışma Yaprağı</span>
+        <span>Sayfa 5 / 11</span>
+      </div>
+    </div>
+
+    <!-- ================= SAYFA 6 (4 SORU: 20, 21, 22, 23) ================= -->
+    <div class="a4-page">
+      <div class="mini-header">
+        <span>BÖLÜM 2: EBOB VE EKOK İŞLEMLERİ & BAĞINTILARI</span>
+        <span>Demet GÜRHAN YAŞAYAN • Matematik Öğretmeni</span>
+      </div>
+
+      <div class="page-questions-wrap">
+        <!-- Soru 20 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 20</span>
+            <span class="q-tag">Harfli Algoritma İncelemesi</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">
+              A ve B sayılarının asal çarpan algoritması şöyledir:<br>
+              A &nbsp; B | 2 * &nbsp;&nbsp;&nbsp; C &nbsp; D | 2 * &nbsp;&nbsp;&nbsp; E &nbsp; F | 3 &nbsp;&nbsp;&nbsp; G &nbsp; F | 3 &nbsp;&nbsp;&nbsp; 1 &nbsp; F | 5 &nbsp;&nbsp;&nbsp; 1<br>
+              (* işareti her iki sayıyı da bölen adımlardır). Buna göre <b>EBOB(A, B) kaçtır?</b>
+            </p>
+          </div>
+          <div class="options-grid">
+            <div class="opt correct"><span class="opt-letter">A)</span> 4</div>
+            <div class="opt"><span class="opt-letter">B)</span> 6</div>
+            <div class="opt"><span class="opt-letter">C)</span> 12</div>
+            <div class="opt"><span class="opt-letter">D)</span> 18</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> İki sayının EBOB'u ortak asal bölenlerin çarpımıdır. Tabloda iki sayıyı birden bölen adımlar 2 ve 2'dir. EBOB(A, B) = 2 · 2 = 4'tür. (Doğru Cevap: A)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 21 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 21</span>
+            <span class="q-tag">Katların Toplamı (En Çok)</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">EBOB'ları 24 olan birbirinden farklı iki basamaklı iki doğal sayının <b>toplamı en fazla kaçtır?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 144</div>
+            <div class="opt correct"><span class="opt-letter">B)</span> 168</div>
+            <div class="opt"><span class="opt-letter">C)</span> 172</div>
+            <div class="opt"><span class="opt-letter">D)</span> 192</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> 24'ün iki basamaklı en büyük katları 96 (24×4) ve 72'dir (24×3). 3 ile 4 aralarında asal olduğu için EBOB 24 kalır. Toplam: 96 + 72 = 168. (Doğru Cevap: B)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 22 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 22</span>
+            <span class="q-tag">EKOK'tan Sayı Toplamı (En Az)</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">EKOK'ları 90 olan birbirinden farklı iki doğal sayının <b>toplamı en az kaçtır?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt correct"><span class="opt-letter">A)</span> 19</div>
+            <div class="opt"><span class="opt-letter">B)</span> 23</div>
+            <div class="opt"><span class="opt-letter">C)</span> 27</div>
+            <div class="opt"><span class="opt-letter">D)</span> 47</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> Toplamın en az olması için sayılar aralarında asal ve birbirine en yakın seçilir: 9 ve 10 (9×10=90, ardışık ve aralarında asal). Toplam = 9 + 10 = 19. (Doğru Cevap: A)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 23 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 23</span>
+            <span class="q-tag">Ortak Bölen Sayısı</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text"><b>36 ve 48</b> sayılarının <b>kaç tane pozitif ortak böleni vardır?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 4</div>
+            <div class="opt"><span class="opt-letter">B)</span> 5</div>
+            <div class="opt correct"><span class="opt-letter">C)</span> 6</div>
+            <div class="opt"><span class="opt-letter">D)</span> 8</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> Ortak bölenler EBOB'un bölenleridir. EBOB(36, 48) = 12. 12'nin pozitif bölenleri: 1, 2, 3, 4, 6, 12 olup toplam 6 tanedir. (Doğru Cevap: C)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>8. Sınıf LGS Matematik • Özel Ders Çalışma Yaprağı</span>
+        <span>Sayfa 6 / 11</span>
+      </div>
+    </div>
+
+    <!-- ================= SAYFA 7 (4 SORU: 24, 25, 26, 27) ================= -->
+    <div class="a4-page">
+      <div class="mini-header">
+        <span>BÖLÜM 3: EBOB PROBLEMLERİ (BÜTÜNDEN PARÇAYA)</span>
+        <span>Demet GÜRHAN YAŞAYAN • Matematik Öğretmeni</span>
+      </div>
+
+      <div class="page-questions-wrap">
+        <!-- Soru 24 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 24</span>
+            <span class="q-tag">EBOB + EKOK = 61</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">Aralarında asal iki sayının EKOK'u ile EBOB'unun toplamı <b>61</b>'dir. Bu sayılardan biri <b>12</b> olduğuna göre, <b>diğer sayı kaçtır?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt correct"><span class="opt-letter">A)</span> 5</div>
+            <div class="opt"><span class="opt-letter">B)</span> 6</div>
+            <div class="opt"><span class="opt-letter">C)</span> 10</div>
+            <div class="opt"><span class="opt-letter">D)</span> 15</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> Aralarında asal iki sayının EBOB'u 1'dir. EKOK + 1 = 61 ➔ EKOK = 60. Çarpımları EKOK'a eşittir: 12 · b = 60 ➔ b = 5 bulunur. (Doğru Cevap: A)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 25 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 25</span>
+            <span class="q-tag">Torba / Poşetleme Problemi</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">Bir bakkal <b>48 kg pirinç</b> ve <b>60 kg bulguru</b> karıştırmadan eşit büyüklükteki torbalara dolduracaktır. Buna göre bu iş için <b>en az kaç torba gereklidir?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 7</div>
+            <div class="opt correct"><span class="opt-letter">B)</span> 9</div>
+            <div class="opt"><span class="opt-letter">C)</span> 12</div>
+            <div class="opt"><span class="opt-letter">D)</span> 15</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> Bir torba en fazla EBOB(48, 60) = 12 kg alır. 48 ÷ 12 = 4 torba pirinç, 60 ÷ 12 = 5 torba bulgur. Toplam = 4 + 5 = 9 torba gerekir. (Doğru Cevap: B)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 26 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 26</span>
+            <span class="q-tag">Bahçe Ağaçlandırma</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">Boyutları <b>45 m ve 75 m</b> olan dikdörtgen bahçenin etrafına, köşelere de dikilmek şartıyla eşit aralıklarla fidan dikilecektir. <b>En az kaç fidan gereklidir?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 14</div>
+            <div class="opt correct"><span class="opt-letter">B)</span> 16</div>
+            <div class="opt"><span class="opt-letter">C)</span> 18</div>
+            <div class="opt"><span class="opt-letter">D)</span> 20</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> İki fidan arası mesafe = EBOB(45, 75) = 15 m. Çevre = 2 · (45 + 75) = 240 m. Fidan Sayısı = 240 ÷ 15 = 16 adet bulunur. (Doğru Cevap: B)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 27 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 27</span>
+            <span class="q-tag">Kesim Sayısı Tuzağı</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">Uzunlukları <b>56 cm ve 84 cm</b> olan iki çıta eşit uzunlukta en büyük parçalara kesilecektir. Her kesim <b>3 dakika</b> sürdüğüne göre, kesimler <b>toplam kaç dakika sürer?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt correct"><span class="opt-letter">A)</span> 9</div>
+            <div class="opt"><span class="opt-letter">B)</span> 12</div>
+            <div class="opt"><span class="opt-letter">C)</span> 15</div>
+            <div class="opt"><span class="opt-letter">D)</span> 18</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> Parça boyu = EBOB(56, 84) = 28 cm. 56 ÷ 28 = 2 parça ➔ 1 kesim; 84 ÷ 28 = 3 parça ➔ 2 kesim. Toplam = 1 + 2 = 3 kesim. Süre: 3 × 3 = 9 dakika. (Doğru Cevap: A)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>8. Sınıf LGS Matematik • Özel Ders Çalışma Yaprağı</span>
+        <span>Sayfa 7 / 11</span>
+      </div>
+    </div>
+
+    <!-- ================= SAYFA 8 (4 SORU: 28, 29, 30, 31) ================= -->
+    <div class="a4-page">
+      <div class="mini-header">
+        <span>BÖLÜM 3: EBOB PROBLEMLERİ (BÜTÜNDEN PARÇAYA)</span>
+        <span>Demet GÜRHAN YAŞAYAN • Matematik Öğretmeni</span>
+      </div>
+
+      <div class="page-questions-wrap">
+        <!-- Soru 28 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 28</span>
+            <span class="q-tag">Zeytinyağı Teneke Geliri</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">72 litre sızma ve 108 litre riviera zeytinyağı eşit hacimli tenekelere paylaştırılacaktır. Tenekelerin her biri <b>400 TL</b> olduğuna göre, elde edilen gelir <b>en az kaç TL olur?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 1600</div>
+            <div class="opt correct"><span class="opt-letter">B)</span> 2000</div>
+            <div class="opt"><span class="opt-letter">C)</span> 2400</div>
+            <div class="opt"><span class="opt-letter">D)</span> 2800</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> Teneke hacmi = EBOB(72, 108) = 36 L. 72 ÷ 36 = 2 teneke; 108 ÷ 36 = 3 teneke. Toplam = 5 teneke. Gelir: 5 × 400 = 2000 TL bulunur. (Doğru Cevap: B)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 29 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 29</span>
+            <span class="q-tag">Kare Parselleme</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">Kenar uzunlukları <b>120 m ve 150 m</b> olan arsa hiç alan artmayacak şekilde eş büyüklükte kare parsellere ayrılacaktır. <b>En az kaç kare parsel elde edilir?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 15</div>
+            <div class="opt"><span class="opt-letter">B)</span> 18</div>
+            <div class="opt correct"><span class="opt-letter">C)</span> 20</div>
+            <div class="opt"><span class="opt-letter">D)</span> 25</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> Karenin kenarı = EBOB(120, 150) = 30 m. Parsel Sayısı = (120 ÷ 30) · (150 ÷ 30) = 4 · 5 = 20 parsel bulunur. (Doğru Cevap: C)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 30 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 30</span>
+            <span class="q-tag">Kumaş ve Takım Elbise</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">64 m ve 80 m uzunluğundaki iki top kumaş eşit uzunlukta en büyük parçalara ayrılacaktır. Her parçadan 1 takım elbise dikilebildiğine göre, <b>toplam kaç takım elbise dikilebilir?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 8</div>
+            <div class="opt correct"><span class="opt-letter">B)</span> 9</div>
+            <div class="opt"><span class="opt-letter">C)</span> 10</div>
+            <div class="opt"><span class="opt-letter">D)</span> 12</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> Parça boyu = EBOB(64, 80) = 16 m. 64 ÷ 16 = 4 parça, 80 ÷ 16 = 5 parça. Toplam = 4 + 5 = 9 takım elbise dikilir. (Doğru Cevap: B)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 31 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 31</span>
+            <span class="q-tag">Otel Odası Yerleştirme</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">36 kız ve 48 erkek sporcu, her odada eşit sayıda ve sadece aynı cinsiyetten kişiler kalacak şekilde odalara yerleştirilecektir. <b>En az kaç odaya ihtiyaç vardır?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 6</div>
+            <div class="opt correct"><span class="opt-letter">B)</span> 7</div>
+            <div class="opt"><span class="opt-letter">C)</span> 8</div>
+            <div class="opt"><span class="opt-letter">D)</span> 10</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> Oda kapasitesi = EBOB(36, 48) = 12 kişi. Kızlar için: 36 ÷ 12 = 3 oda; Erkekler için: 48 ÷ 12 = 4 oda. Toplam = 3 + 4 = 7 oda gerekir. (Doğru Cevap: B)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>8. Sınıf LGS Matematik • Özel Ders Çalışma Yaprağı</span>
+        <span>Sayfa 8 / 11</span>
+      </div>
+    </div>
+
+    <!-- ================= SAYFA 9 (4 SORU: 32, 33, 34, 35) ================= -->
+    <div class="a4-page">
+      <div class="mini-header">
+        <span>BÖLÜM 4: EKOK PROBLEMLERİ & LGS MODELLEME SORULARI</span>
+        <span>Demet GÜRHAN YAŞAYAN • Matematik Öğretmeni</span>
+      </div>
+
+      <div class="page-questions-wrap">
+        <!-- Soru 32 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 32</span>
+            <span class="q-tag">Üçlü EBOB Parçalama</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">Boyutları <b>40 cm, 60 cm ve 80 cm</b> olan üç metal profil eşit uzunluktaki en büyük parçalara kesilecektir. <b>Toplam kaç parça elde edilir?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 7</div>
+            <div class="opt"><span class="opt-letter">B)</span> 8</div>
+            <div class="opt correct"><span class="opt-letter">C)</span> 9</div>
+            <div class="opt"><span class="opt-letter">D)</span> 11</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> Parça boyu = EBOB(40, 60, 80) = 20 cm. Parça sayıları: 40 ÷ 20 = 2; 60 ÷ 20 = 3; 80 ÷ 20 = 4. Toplam = 2 + 3 + 4 = 9 parça bulunur. (Doğru Cevap: C)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 33 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 33</span>
+            <span class="q-tag">Nöbet Gün Hesabı</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">İki hemşireden biri 6 günde bir, diğeri 8 günde bir nöbet tutmaktadır. İlk kez <b>Salı</b> günü birlikte nöbet tuttuklarına göre, <b>ikinci kez birlikte hangi gün nöbet tutarlar?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> Perşembe</div>
+            <div class="opt correct"><span class="opt-letter">B)</span> Cuma</div>
+            <div class="opt"><span class="opt-letter">C)</span> Cumartesi</div>
+            <div class="opt"><span class="opt-letter">D)</span> Pazar</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> EKOK(6, 8) = 24 gün. 24 ÷ 7 = 3 hafta, kalan 3 gün. Salı + 3 gün = Çarşamba (1), Perşembe (2), Cuma (3). Birlikte Cuma günü nöbet tutarlar. (Doğru Cevap: B)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 34 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 34</span>
+            <span class="q-tag">Kalanlı Bilye Problemi</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">Ahmet bilyelerini dörderli ve altışarlı saydığında her seferinde 3 bilyesi artmaktadır. Bilye sayısı <b>100'den fazla</b> olduğuna göre, <b>en az kaç bilyesi vardır?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 103</div>
+            <div class="opt"><span class="opt-letter">B)</span> 107</div>
+            <div class="opt correct"><span class="opt-letter">C)</span> 111</div>
+            <div class="opt"><span class="opt-letter">D)</span> 115</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> EKOK(4, 6) = 12. Bilye sayısı = 12k + 3. 12'nin 100'den büyük en küçük katı 108'dir. Bilye sayısı = 108 + 3 = 111'dir. (Doğru Cevap: C)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 35 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 35</span>
+            <span class="q-tag">Kartonlarla Kare Oluşturma</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">Kenarları 8 cm ve 12 cm olan dikdörtgen kartonlar yan yana ve üst üste dizilerek en küçük alanlı bir kare yapılacaktır. <b>En az kaç karton gereklidir?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt correct"><span class="opt-letter">A)</span> 6</div>
+            <div class="opt"><span class="opt-letter">B)</span> 8</div>
+            <div class="opt"><span class="opt-letter">C)</span> 10</div>
+            <div class="opt"><span class="opt-letter">D)</span> 12</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> Karenin kenarı = EKOK(8, 12) = 24 cm. Karton sayısı = (24 ÷ 8) · (24 ÷ 12) = 3 · 2 = 6 adet karton gerekir. (Doğru Cevap: A)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>8. Sınıf LGS Matematik • Özel Ders Çalışma Yaprağı</span>
+        <span>Sayfa 9 / 11</span>
+      </div>
+    </div>
+
+    <!-- ================= SAYFA 10 (4 SORU: 36, 37, 38, 39) ================= -->
+    <div class="a4-page">
+      <div class="mini-header">
+        <span>BÖLÜM 4: EKOK PROBLEMLERİ & LGS MODELLEME SORULARI</span>
+        <span>Demet GÜRHAN YAŞAYAN • Matematik Öğretmeni</span>
+      </div>
+
+      <div class="page-questions-wrap">
+        <!-- Soru 36 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 36</span>
+            <span class="q-tag">LGS Raf Kutu Dizilimi</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">Genişliği <b>80 cm ile 110 cm arasında</b> olan bir rafa; ayrıtı 6 cm olan mavi küpler veya ayrıtı 8 cm olan kırmızı küpler hiç boşluksuz dizilebilmektedir. <b>Rafın uzunluğu kaç cm'dir?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 84</div>
+            <div class="opt"><span class="opt-letter">B)</span> 90</div>
+            <div class="opt correct"><span class="opt-letter">C)</span> 96</div>
+            <div class="opt"><span class="opt-letter">D)</span> 104</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> Raf uzunluğu hem 6 hem 8'in katıdır: EKOK(6, 8) = 24 cm. 24'ün 80 ile 110 arasındaki katı 96 cm'dir (24×4=96). (Doğru Cevap: C)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 37 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 37</span>
+            <span class="q-tag">Otobüs Sefer Saatleri</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">Denizli otobüsü 45 dakikada bir, Muğla otobüsü 60 dakikada bir kalkmaktadır. İlk kez <b>07.00</b>'de aynı anda kalktıklarına göre, <b>15.00'e kadar (dahil) kaç kez aynı anda kalkarlar?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 2</div>
+            <div class="opt correct"><span class="opt-letter">B)</span> 3</div>
+            <div class="opt"><span class="opt-letter">C)</span> 4</div>
+            <div class="opt"><span class="opt-letter">D)</span> 5</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> EKOK(45, 60) = 180 dk = 3 saatte bir ortak hareket ederler. 07.00 (1.), 10.00 (2.), 13.00 (3.). Bir sonraki 16.00 olur. Toplam 3 kezdir. (Doğru Cevap: B)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 38 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 38</span>
+            <span class="q-tag">Adım Uzunluğu Parkur</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">Ali'nin adımı 40 cm, Veli'nin adımı 50 cm'dir. İkisi de parkuru tam adımla bitirmiştir. Parkurun uzunluğu <b>25 metreden fazla</b> olduğuna göre, <b>en az kaç metredir?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 25,5</div>
+            <div class="opt correct"><span class="opt-letter">B)</span> 26</div>
+            <div class="opt"><span class="opt-letter">C)</span> 28</div>
+            <div class="opt"><span class="opt-letter">D)</span> 30</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> EKOK(40, 50) = 200 cm = 2 m. Parkur 2 m'nin tam katıdır. 25'ten büyük en küçük çift sayı 26 metredir. (Doğru Cevap: B)
+            </div>
+          </div>
+        </div>
+
+        <!-- Soru 39 -->
+        <div class="question-card">
+          <div class="q-head">
+            <span class="q-badge">Soru 39</span>
+            <span class="q-tag">Bisiklet Teker Turu</span>
+          </div>
+          <div class="q-body">
+            <p class="q-text">Çevre = 2 · π · r'dir (π = 3 alınız). Ön tekerlek yarıçapı 20 cm, arka tekerlek yarıçapı 30 cm olan bisikletin iki tekeri de <b>tam tur attığında</b> alınan yol <b>en az kaç metredir?</b></p>
+          </div>
+          <div class="options-grid">
+            <div class="opt"><span class="opt-letter">A)</span> 3,2</div>
+            <div class="opt correct"><span class="opt-letter">B)</span> 3,6</div>
+            <div class="opt"><span class="opt-letter">C)</span> 5,4</div>
+            <div class="opt"><span class="opt-letter">D)</span> 7,2</div>
+          </div>
+          <div class="work-grid-area">
+            <span class="work-label">İşlem & Çözüm Alanı:</span>
+            <div class="teacher-solution-box">
+              <b>Çözüm:</b> Ön teker çevre = 2 · 3 · 20 = 120 cm; Arka teker çevre = 2 · 3 · 30 = 180 cm. EKOK(120, 180) = 360 cm = 3,6 metre bulunur. (Doğru Cevap: B)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>8. Sınıf LGS Matematik • Özel Ders Çalışma Yaprağı</span>
+        <span>Sayfa 10 / 11</span>
+      </div>
+    </div>
+
+    <!-- ================= SAYFA 11 (SORU 40 + OPTİK FORM + DEĞERLENDİRME) ================= -->
+    <div class="a4-page">
+      <div class="mini-header">
+        <span>LGS ŞAMPİYON SORU & GENEL PERFORMANS ANALİZİ</span>
+        <span>Demet GÜRHAN YAŞAYAN • Matematik Öğretmeni</span>
+      </div>
+
+      <!-- Soru 40 -->
+      <div class="question-card" style="flex: 0 0 auto; margin-bottom: 6px;">
+        <div class="q-head">
+          <span class="q-badge">Soru 40 (LGS Şampiyon Soru)</span>
+          <span class="q-tag">Ortak Kenarlı Parsel ve Çevre</span>
+        </div>
+        <div class="q-body">
+          <p class="q-text">
+            Kenar uzunlukları metre cinsinden birer doğal sayı olan iki dikdörtgensel arsa ortak bir kenar boyunca birleştirilmiştir.<br>
+            • 1. Arsanın Alanı: <b>48 m²</b> &nbsp;&nbsp; • 2. Arsanın Alanı: <b>60 m²</b><br>
+            Ortak kenar uzunluğu <b>en büyük değerini</b> aldığında, oluşan yeni arsanın <b>çevresi kaç metre olur?</b>
+          </p>
+        </div>
+        <div class="options-grid">
+          <div class="opt"><span class="opt-letter">A)</span> 38</div>
+          <div class="opt correct"><span class="opt-letter">B)</span> 42</div>
+          <div class="opt"><span class="opt-letter">C)</span> 46</div>
+          <div class="opt"><span class="opt-letter">D)</span> 54</div>
+        </div>
+        <div class="teacher-solution-box" style="margin-top: 4px;">
+          <b>Çözüm:</b> Ortak kenar = EBOB(48, 60) = 12 m. 1. arsa diğer kenar: 48 ÷ 12 = 4 m; 2. arsa diğer kenar: 60 ÷ 12 = 5 m. Birleşen arsanın kenarları 12 m ve (4 + 5 = 9 m)'dir. Çevre = 2 · (12 + 9) = 2 · 21 = 42 metre bulunur. (Doğru Cevap: B)
+        </div>
+      </div>
+
+      <!-- 40 Soruluk Optik Cevap Formu -->
+      <div class="optical-section">
+        <div class="optical-title">🎯 40 Soruluk Optik Cevap Kodlama Formu</div>
+        <div class="optical-grid">
+          <!-- Sütun 1: 1-10 -->
+          <div class="opt-col">
+            <div class="opt-row"><span class="opt-num">1</span><div class="bubbles"><span class="bubble">A</span><span class="bubble filled">B</span><span class="bubble">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">2</span><div class="bubbles"><span class="bubble">A</span><span class="bubble">B</span><span class="bubble filled">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">3</span><div class="bubbles"><span class="bubble">A</span><span class="bubble filled">B</span><span class="bubble">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">4</span><div class="bubbles"><span class="bubble">A</span><span class="bubble">B</span><span class="bubble filled">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">5</span><div class="bubbles"><span class="bubble">A</span><span class="bubble">B</span><span class="bubble filled">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">6</span><div class="bubbles"><span class="bubble">A</span><span class="bubble">B</span><span class="bubble">C</span><span class="bubble filled">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">7</span><div class="bubbles"><span class="bubble filled">A</span><span class="bubble">B</span><span class="bubble">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">8</span><div class="bubbles"><span class="bubble">A</span><span class="bubble">B</span><span class="bubble filled">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">9</span><div class="bubbles"><span class="bubble">A</span><span class="bubble">B</span><span class="bubble">C</span><span class="bubble filled">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">10</span><div class="bubbles"><span class="bubble filled">A</span><span class="bubble">B</span><span class="bubble">C</span><span class="bubble">D</span></div></div>
+          </div>
+          <!-- Sütun 2: 11-20 -->
+          <div class="opt-col">
+            <div class="opt-row"><span class="opt-num">11</span><div class="bubbles"><span class="bubble">A</span><span class="bubble filled">B</span><span class="bubble">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">12</span><div class="bubbles"><span class="bubble">A</span><span class="bubble">B</span><span class="bubble filled">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">13</span><div class="bubbles"><span class="bubble">A</span><span class="bubble">B</span><span class="bubble filled">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">14</span><div class="bubbles"><span class="bubble">A</span><span class="bubble">B</span><span class="bubble filled">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">15</span><div class="bubbles"><span class="bubble">A</span><span class="bubble">B</span><span class="bubble filled">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">16</span><div class="bubbles"><span class="bubble">A</span><span class="bubble">B</span><span class="bubble filled">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">17</span><div class="bubbles"><span class="bubble">A</span><span class="bubble filled">B</span><span class="bubble">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">18</span><div class="bubbles"><span class="bubble">A</span><span class="bubble filled">B</span><span class="bubble">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">19</span><div class="bubbles"><span class="bubble">A</span><span class="bubble">B</span><span class="bubble filled">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">20</span><div class="bubbles"><span class="bubble filled">A</span><span class="bubble">B</span><span class="bubble">C</span><span class="bubble">D</span></div></div>
+          </div>
+          <!-- Sütun 3: 21-30 -->
+          <div class="opt-col">
+            <div class="opt-row"><span class="opt-num">21</span><div class="bubbles"><span class="bubble">A</span><span class="bubble filled">B</span><span class="bubble">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">22</span><div class="bubbles"><span class="bubble filled">A</span><span class="bubble">B</span><span class="bubble">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">23</span><div class="bubbles"><span class="bubble">A</span><span class="bubble">B</span><span class="bubble filled">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">24</span><div class="bubbles"><span class="bubble filled">A</span><span class="bubble">B</span><span class="bubble">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">25</span><div class="bubbles"><span class="bubble">A</span><span class="bubble filled">B</span><span class="bubble">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">26</span><div class="bubbles"><span class="bubble">A</span><span class="bubble filled">B</span><span class="bubble">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">27</span><div class="bubbles"><span class="bubble filled">A</span><span class="bubble">B</span><span class="bubble">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">28</span><div class="bubbles"><span class="bubble">A</span><span class="bubble filled">B</span><span class="bubble">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">29</span><div class="bubbles"><span class="bubble">A</span><span class="bubble">B</span><span class="bubble filled">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">30</span><div class="bubbles"><span class="bubble">A</span><span class="bubble filled">B</span><span class="bubble">C</span><span class="bubble">D</span></div></div>
+          </div>
+          <!-- Sütun 4: 31-40 -->
+          <div class="opt-col">
+            <div class="opt-row"><span class="opt-num">31</span><div class="bubbles"><span class="bubble">A</span><span class="bubble filled">B</span><span class="bubble">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">32</span><div class="bubbles"><span class="bubble">A</span><span class="bubble">B</span><span class="bubble filled">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">33</span><div class="bubbles"><span class="bubble">A</span><span class="bubble filled">B</span><span class="bubble">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">34</span><div class="bubbles"><span class="bubble">A</span><span class="bubble">B</span><span class="bubble filled">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">35</span><div class="bubbles"><span class="bubble filled">A</span><span class="bubble">B</span><span class="bubble">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">36</span><div class="bubbles"><span class="bubble">A</span><span class="bubble">B</span><span class="bubble filled">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">37</span><div class="bubbles"><span class="bubble">A</span><span class="bubble filled">B</span><span class="bubble">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">38</span><div class="bubbles"><span class="bubble">A</span><span class="bubble filled">B</span><span class="bubble">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">39</span><div class="bubbles"><span class="bubble">A</span><span class="bubble filled">B</span><span class="bubble">C</span><span class="bubble">D</span></div></div>
+            <div class="opt-row"><span class="opt-num">40</span><div class="bubbles"><span class="bubble">A</span><span class="bubble">B</span><span class="bubble filled">C</span><span class="bubble">D</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kazanım Başarı Tablosu -->
+      <table class="analysis-table">
+        <thead>
+          <tr>
+            <th>Bölüm Adı ve Kazanım Alanı</th>
+            <th>Soru Dağılımı</th>
+            <th>Doğru</th>
+            <th>Yanlış</th>
+            <th>Boş</th>
+            <th>Başarı %</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="text-align: left; font-weight: 700;">1. Bölüm: Aralarında Asal Sayılar & Özellikleri</td>
+            <td>1 - 12 (12 Soru)</td>
+            <td></td><td></td><td></td><td>%</td>
+          </tr>
+          <tr>
+            <td style="text-align: left; font-weight: 700;">2. Bölüm: EBOB - EKOK İşlemleri ve Bağıntıları</td>
+            <td>13 - 24 (12 Soru)</td>
+            <td></td><td></td><td></td><td>%</td>
+          </tr>
+          <tr>
+            <td style="text-align: left; font-weight: 700;">3. Bölüm: Klasik EBOB Problemleri (Bütünden Parçaya)</td>
+            <td>25 - 32 (8 Soru)</td>
+            <td></td><td></td><td></td><td>%</td>
+          </tr>
+          <tr>
+            <td style="text-align: left; font-weight: 700;">4. Bölüm: EKOK Problemleri & LGS Modelleme</td>
+            <td>33 - 40 (8 Soru)</td>
+            <td></td><td></td><td></td><td>%</td>
+          </tr>
+          <tr style="background: #fdf2f8; font-weight: 900;">
+            <td style="text-align: left;">GENEL TEST PERFORMANSI</td>
+            <td>1 - 40 (40 Soru)</td>
+            <td></td><td></td><td></td><td>%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Öğretmen Değerlendirme ve Onay Kutusu -->
+      <div class="eval-box">
+        <b>Öğretmen Süreç ve Gelişim Değerlendirme Notu:</b>
+        <div style="border-bottom: 1px dotted #94a3b8; height: 18px; margin-top: 4px;"></div>
+        <div style="border-bottom: 1px dotted #94a3b8; height: 18px; margin-top: 4px;"></div>
+        <div class="signature-row">
+          <div>Ders Öğretmeni: <b>Demet GÜRHAN YAŞAYAN</b> (İmza: ............)</div>
+          <div>Okul Müdürü: <b>Ali Rıza HACIOĞLU</b></div>
+          <div>Veli Görüşü & İmza: ........................</div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>8. Sınıf LGS Matematik • Özel Ders Çalışma Yaprağı</span>
+        <span>Sayfa 11 / 11</span>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleMode() {
+      const isTeacher = document.body.classList.toggle('teacher-mode');
+      const btn = document.getElementById('toggleModeBtn');
+      if (isTeacher) {
+        btn.textContent = '👁️ Öğrenci Moduna Geç (Baskılık)';
+        btn.classList.remove('btn-outline');
+        btn.classList.add('btn-success');
+      } else {
+        btn.textContent = '💡 Çözümlü Öğretmen Moduna Geç';
+        btn.classList.remove('btn-success');
+        btn.classList.add('btn-outline');
+      }
+    }
+  </script>
+</body>
+</html>
