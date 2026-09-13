@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6'dan 7'ye Geçiş Matematik Hazırbulunuşluk Testi (20 Soru) | Uğur Hoca</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e40af;
+      --primary-light: #eff6ff;
+      --accent: #f59e0b;
+      --success: #15803d;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #cbd5e1;
+      --card-bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #f1f5f9;
+      color: var(--text);
+      line-height: 1.5;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: white;
+      padding: 35px 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    /* Üst Kontrol Çubuğu */
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f8fafc;
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13.5px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-outline {
+      background: white;
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    /* Başlık ve Sınav Bilgisi */
+    .header-box {
+      border: 2px solid var(--primary);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin-bottom: 25px;
+      background: #fafcff;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px dashed var(--border);
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+    }
+
+    .header-top h1 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .header-top .teacher-badge {
+      font-weight: 700;
+      font-size: 13px;
+      background: var(--primary);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .student-fields {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+
+    .field-line {
+      border-bottom: 1px dotted #94a3b8;
+      display: inline-block;
+      min-width: 90px;
+    }
+
+    /* Soru Grid */
+    .questions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .question-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 18px;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      page-break-inside: avoid;
+      position: relative;
+    }
+
+    .q-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .q-badge {
+      background: var(--primary);
+      color: white;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .q-tag {
+      font-size: 11.5px;
+      color: var(--muted);
+      background: #f1f5f9;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .q-text {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .math-expr {
+      font-family: 'JetBrains Mono', monospace;
+      background: #f8fafc;
+      padding: 4px 8px;
+      border-radius: 6px;
+      border-left: 3px solid var(--primary);
+      margin: 6px 0;
+      font-size: 13px;
+      color: #0f172a;
+      display: inline-block;
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin: 10px 0;
+    }
+
+    .opt {
+      font-size: 13px;
+      padding: 5px 8px;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      font-weight: 600;
+    }
+
+    .opt.correct-answer {
+      background: #dcfce7 !important;
+      border-color: #22c55e !important;
+      color: #15803d !important;
+      font-weight: 800;
+    }
+
+    /* Çözüm ve İşlem Alanı */
+    .work-area {
+      min-height: 48px;
+      border: 1px dashed #cbd5e1;
+      border-radius: 6px;
+      background: #fcfcfd;
+      margin-top: 8px;
+      padding: 6px 8px;
+      font-size: 11.5px;
+      color: #64748b;
+    }
+
+    .solution-box {
+      margin-top: 8px;
+      padding: 8px 10px;
+      background: #f0fdf4;
+      border-left: 3px solid #16a34a;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #166534;
+      line-height: 1.4;
+      display: none; /* Varsayılan gizli, öğretmen modunda açılır */
+    }
+
+    .solution-box strong {
+      color: #14532d;
+    }
+
+    body.show-solutions .solution-box {
+      display: block;
+    }
+
+    body.show-solutions .work-area {
+      display: none;
+    }
+
+    /* Optik Form */
+    .optical-section {
+      margin-top: 30px;
+      padding: 16px 20px;
+      background: #f8fafc;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      page-break-inside: avoid;
+    }
+
+    .optical-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 10px;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    .optical-grid {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 10px;
+      font-size: 12px;
+    }
+
+    .optical-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .bubble-row {
+      display: flex;
+      gap: 3px;
+    }
+
+    .bubble {
+      width: 16px;
+      height: 16px;
+      border: 1px solid #64748b;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      font-weight: 700;
+      color: #475569;
+    }
+
+    .bubble.filled {
+      background: #1e293b;
+      color: white;
+      border-color: #1e293b;
+    }
+
+    /* Baskı Ayarları */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      .container {
+        padding: 0;
+        box-shadow: none;
+      }
+      .toolbar {
+        display: none;
+      }
+      .question-card {
+        page-break-inside: avoid;
+        border-color: #cbd5e1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Üst Butonlar -->
+    <div class="toolbar">
+      <div>
+        <button class="btn btn-outline" onclick="toggleSolutions()" id="modeBtn">👁️ Çözümleri ve Cevapları Göster</button>
+      </div>
+      <div>
+        <button class="btn btn-primary" onclick="window.print()">🖨️ Testi Yazdır / PDF Kaydet</button>
+      </div>
+    </div>
+
+    <!-- Başlık Bilgi Kartı -->
+    <div class="header-box">
+      <div class="header-top">
+        <div>
+          <h1>6'dan 7'ye Matematik Geçiş & Hazırbulunuşluk Testi</h1>
+          <div style="font-size: 13px; color: #64748b; margin-top: 2px;">6. Sınıf Kilit Kazanım Taraması ve 7. Sınıf Düzey Tespiti</div>
+        </div>
+        <div class="teacher-badge">Uğur YAŞAYAN · Matematik</div>
+      </div>
+      <div class="student-fields">
+        <div>Adı Soyadı: <span class="field-line"></span></div>
+        <div>Tarih: <span class="field-line"></span></div>
+        <div>Süre: <strong>50 Dakika</strong></div>
+        <div>Puan: <span class="field-line"></span> / 100</div>
+      </div>
+    </div>
+
+    <!-- 20 Soru Grid -->
+    <div class="questions-grid">
+
+      <!-- Soru 1 -->
+      <div class="question-card">
+        <div>
+          <div class="q-header">
+            <span class="q-badge">Soru 1</span>
+            <span class="q-tag">İşlem Önceliği</span>
+          </div>
+          <div class="q-text">Aşağıda verilen işlemin sonucu kaçtır?</div>
+          <div class="math-expr">36 - 12 ÷ 3 + 2 × 5²</div>
+          <div class="options">
+            <div class="opt">A) 52</div>
+            <div class="opt">B) 68</div>
+            <div class="opt opt-c">C) 82</div>
+            <div class="opt">D) 94</div>
+          </div>
+        </div>
+        <div>
+          <div class="work-area">İşlem Alanı:</div>
+          <div class="solution-box">
+            <strong>Çözüm:</strong> 5² = 25. Bölme ve çarpma: 12 ÷ 3 = 4 ve 2 × 25 = 50. İfade: 36 - 4 + 50 = 32 + 50 = <strong>82</strong> (C şıkkı).
+          </div>
+        </div>
+      </div>
+
+      <!-- Soru 2 -->
+      <div class="question-card">
+        <div>
+          <div class="q-header">
+            <span class="q-badge">Soru 2</span>
+            <span class="q-tag">Asal Çarpanlar</span>
+          </div>
+          <div class="q-text">72 sayısının asal çarpanlarının toplamı kaçtır?</div>
+          <div class="options">
+            <div class="opt opt-a">A) 5</div>
+            <div class="opt">B) 12</div>
+            <div class="opt">C) 15</div>
+            <div class="opt">D) 17</div>
+          </div>
+        </div>
+        <div>
+          <div class="work-area">İşlem Alanı:</div>
+          <div class="solution-box">
+            <strong>Çözüm:</strong> 72 = 2³ × 3². Farklı asal çarpanlar 2 ve 3'tür. 2 + 3 = <strong>5</strong> (A şıkkı).
+          </div>
+        </div>
+      </div>
+
+      <!-- Soru 3 -->
+      <div class="question-card">
+        <div>
+          <div class="q-header">
+            <span class="q-badge">Soru 3</span>
+            <span class="q-tag">Bölünebilme Kuralları</span>
+          </div>
+          <div class="q-text">Dört basamaklı <strong>5A4B</strong> sayısı hem 5'e hem de 9'a kalansız bölünebilen bir <strong>çift sayıdır</strong>. Buna göre A yerine yazılabilecek en büyük rakam kaçtır?</div>
+          <div class="options">
+            <div class="opt">A) 0</div>
+            <div class="opt">B) 4</div>
+            <div class="opt">C) 7</div>
+            <div class="opt opt-d">D) 9</div>
+          </div>
+        </div>
+        <div>
+          <div class="work-area">İşlem Alanı:</div>
+          <div class="solution-box">
+            <strong>Çözüm:</strong> Çift ve 5'e bölündüğünden B = 0. Rakam toplamı: 5 + A + 4 + 0 = 9 + A. 9'un katı için A = 0 veya 9 olabilir. Şıklardaki en büyük değer <strong>9</strong> (D şıkkı).
+          </div>
+        </div>
+      </div>
+
+      <!-- Soru 4 -->
+      <div class="question-card">
+        <div>
+          <div class="q-header">
+            <span class="q-badge">Soru 4</span>
+            <span class="q-tag">Kümeler</span>
+          </div>
+          <div class="q-text">A = {ANKARA kelimesinin harfleri} ve B = {KONYA kelimesinin harfleri} olduğuna göre <strong>s(A ∩ B)</strong> kaçtır?</div>
+          <div class="options">
+            <div class="opt">A) 1</div>
+            <div class="opt">B) 2</div>
+            <div class="opt opt-c">C) 3</div>
+            <div class="opt">D) 4</div>
+          </div>
+        </div>
+        <div>
+          <div class="work-area">İşlem Alanı:</div>
+          <div class="solution-box">
+            <strong>Çözüm:</strong> A = {A, N, K, R}, B = {K, O, N, Y, A}. Ortak elemanlar: {A, N, K}. Eleman sayısı = <strong>3</strong> (C şıkkı).
+          </div>
+        </div>
+      </div>
+
+      <!-- Soru 5 -->
+      <div class="question-card">
+        <div>
+          <div class="q-header">
+            <span class="q-badge">Soru 5</span>
+            <span class="q-tag">Tam Sayılar</span>
+          </div>
+          <div class="q-text">Aşağıdaki ifadelerden hangisinin belirttiği tam sayının işareti <strong>diğerlerinden farklıdır</strong>?</div>
+          <div class="options">
+            <div class="opt">A) Deniz seviyesinin 15 m altı</div>
+            <div class="opt opt-b">B) Bir esnafın 450 TL kâr etmesi</div>
+            <div class="opt">C) Sıfırın altında 7 derece</div>
+            <div class="opt">D) Suyun 20 m derinliği</div>
+          </div>
+        </div>
+        <div>
+          <div class="work-area">İşlem Alanı:</div>
+          <div class="solution-box">
+            <strong>Çözüm:</strong> A: -15, B: +450, C: -7, D: -20. Pozitif olan tek ifade <strong>B şıkkıdır</strong>.
+          </div>
+        </div>
+      </div>
+
+      <!-- Soru 6 -->
+      <div class="question-card">
+        <div>
+          <div class="q-header">
+            <span class="q-badge">Soru 6</span>
+            <span class="q-tag">Sayı Doğrusu</span>
+          </div>
+          <div class="q-text">Sayı doğrusunda <strong>-8 ile +3 arasında</strong> kaç tane tam sayı vardır?</div>
+          <div class="options">
+            <div class="opt">A) 9</div>
+            <div class="opt opt-b">B) 10</div>
+            <div class="opt">C) 11</div>
+            <div class="opt">D) 12</div>
+          </div>
+        </div>
+        <div>
+          <div class="work-area">İşlem Alanı:</div>
+          <div class="solution-box">
+            <strong>Çözüm:</strong> {-7, -6, -5, -4, -3, -2, -1, 0, 1, 2} kümesinde toplam <strong>10</strong> tam sayı vardır (B şıkkı).
+          </div>
+        </div>
+      </div>
+
+      <!-- Soru 7 -->
+      <div class="question-card">
+        <div>
+          <div class="q-header">
+            <span class="q-badge">Soru 7</span>
+            <span class="q-tag">Mutlak Değer</span>
+          </div>
+          <div class="q-text">Verilen işlemin sonucu kaçtır?</div>
+          <div class="math-expr">|-14| - |+6| + |-3|</div>
+          <div class="options">
+            <div class="opt">A) 5</div>
+            <div class="opt opt-b">B) 11</div>
+            <div class="opt">C) 17</div>
+            <div class="opt">D) 23</div>
+          </div>
+        </div>
+        <div>
+          <div class="work-area">İşlem Alanı:</div>
+          <div class="solution-box">
+            <strong>Çözüm:</strong> |-14| = 14, |+6| = 6, |-3| = 3. 14 - 6 + 3 = 8 + 3 = <strong>11</strong> (B şıkkı).
+          </div>
+        </div>
+      </div>
+
+      <!-- Soru 8 -->
+      <div class="question-card">
+        <div>
+          <div class="q-header">
+            <span class="q-badge">Soru 8</span>
+            <span class="q-tag">Kesirlerde Sıralama</span>
+          </div>
+          <div class="q-text">a = 3/4, b = 5/6, c = 7/12 kesirlerinin <strong>küçükten büyüğe</strong> sıralanışı hangisidir?</div>
+          <div class="options">
+            <div class="opt opt-a">A) c &lt; a &lt; b</div>
+            <div class="opt">B) a &lt; c &lt; b</div>
+            <div class="opt">C) c &lt; b &lt; a</div>
+            <div class="opt">D) b &lt; a &lt; c</div>
+          </div>
+        </div>
+        <div>
+          <div class="work-area">İşlem Alanı:</div>
+          <div class="solution-box">
+            <strong>Çözüm:</strong> Paydaları 12 yapalım: a = 9/12, b = 10/12, c = 7/12. 7/12 &lt; 9/12 &lt; 10/12 olduğundan <strong>c &lt; a &lt; b</strong> (A şıkkı).
+          </div>
+        </div>
+      </div>
+
+      <!-- Soru 9 -->
+      <div class="question-card">
+        <div>
+          <div class="q-header">
+            <span class="q-badge">Soru 9</span>
+            <span class="q-tag">Kesirlerde Toplama/Çıkarma</span>
+          </div>
+          <div class="q-text">Verilen işlemin sonucu kaçtır?</div>
+          <div class="math-expr">2 1/3 + 1 1/2 - 5/6</div>
+          <div class="options">
+            <div class="opt">A) 2</div>
+            <div class="opt">B) 2 2/3</div>
+            <div class="opt opt-c">C) 3</div>
+            <div class="opt">D) 3 1/2</div>
+          </div>
+        </div>
+        <div>
+          <div class="work-area">İşlem Alanı:</div>
+          <div class="solution-box">
+            <strong>Çözüm:</strong> 7/3 + 3/2 - 5/6 = 14/6 + 9/6 - 5/6 = 18/6 = <strong>3</strong> (C şıkkı).
+          </div>
+        </div>
+      </div>
+
+      <!-- Soru 10 -->
+      <div class="question-card">
+        <div>
+          <div class="q-header">
+            <span class="q-badge">Soru 10</span>
+            <span class="q-tag">Kesirlerde Çarpma/Bölme</span>
+          </div>
+          <div class="q-text">Verilen işlemin sonucu en sade haliyle kaçtır?</div>
+          <div class="math-expr">(4/9 × 3/8) ÷ 5/12</div>
+          <div class="options">
+            <div class="opt">A) 1/6</div>
+            <div class="opt opt-b">B) 2/5</div>
+            <div class="opt">C) 5/18</div>
+            <div class="opt">D) 3/4</div>
+          </div>
+        </div>
+        <div>
+          <div class="work-area">İşlem Alanı:</div>
+          <div class="solution-box">
+            <strong>Çözüm:</strong> 4/9 × 3/8 = 1/6. Ardından 1/6 ÷ 5/12 = 1/6 × 12/5 = 12/30 = <strong>2/5</strong> (B şıkkı).
+          </div>
+        </div>
+      </div>
+
+      <!-- Soru 11 -->
+      <div class="question-card">
+        <div>
+          <div class="q-header">
+            <span class="q-badge">Soru 11</span>
+            <span class="q-tag">Kesir Problemleri</span>
+          </div>
+          <div class="q-text">120 L suyun önce 2/5'si, sonra kalanın 1/3'i harcanıyor. Geriye <strong>kaç litre</strong> su kalmıştır?</div>
+          <div class="options">
+            <div class="opt">A) 36</div>
+            <div class="opt">B) 40</div>
+            <div class="opt opt-c">C) 48</div>
+            <div class="opt">D) 54</div>
+          </div>
+        </div>
+        <div>
+          <div class="work-area">İşlem Alanı:</div>
+          <div class="solution-box">
+            <strong>Çözüm:</strong> 120 × 2/5 = 48 L harcandı. Kalan = 72 L. 72'nin 1/3'i = 24 L. Son kalan: 72 - 24 = <strong>48 L</strong> (C şıkkı).
+          </div>
+        </div>
+      </div>
+
+      <!-- Soru 12 -->
+      <div class="question-card">
+        <div>
+          <div class="q-header">
+            <span class="q-badge">Soru 12</span>
+            <span class="q-tag">Ondalık Çarpma</span>
+          </div>
+          <div class="q-text">2,4 × 0,15 işleminin sonucu kaçtır?</div>
+          <div class="options">
+            <div class="opt">A) 0,036</div>
+            <div class="opt opt-b">B) 0,36</div>
+            <div class="opt">C) 3,6</div>
+            <div class="opt">D) 36</div>
+          </div>
+        </div>
+        <div>
+          <div class="work-area">İşlem Alanı:</div>
+          <div class="solution-box">
+            <strong>Çözüm:</strong> 24 × 15 = 360. Virgülden sonra toplam 3 basamak: 0,360 = <strong>0,36</strong> (B şıkkı).
+          </div>
+        </div>
+      </div>
+
+      <!-- Soru 13 -->
+      <div class="question-card">
+        <div>
+          <div class="q-header">
+            <span class="q-badge">Soru 13</span>
+            <span class="q-tag">Ondalık Bölme</span>
+          </div>
+          <div class="q-text">Verilen işlemin sonucu kaçtır?</div>
+          <div class="math-expr">(0,48 / 0,06) + (1,2 / 0,03)</div>
+          <div class="options">
+            <div class="opt">A) 28</div>
+            <div class="opt">B) 38</div>
+            <div class="opt opt-c">C) 48</div>
+            <div class="opt">D) 52</div>
+          </div>
+        </div>
+        <div>
+          <div class="work-area">İşlem Alanı:</div>
+          <div class="solution-box">
+            <strong>Çözüm:</strong> 48 ÷ 6 = 8. 120 ÷ 3 = 40. Toplam: 8 + 40 = <strong>48</strong> (C şıkkı).
+          </div>
+        </div>
+      </div>
+
+      <!-- Soru 14 -->
+      <div class="question-card">
+        <div>
+          <div class="q-header">
+            <span class="q-badge">Soru 14</span>
+            <span class="q-tag">Oran</span>
+          </div>
+          <div class="q-text">Kızların erkeklere oranı 3/5 olan 24 kişilik sınıfta, erkekler kızlardan kaç fazladır?</div>
+          <div class="options">
+            <div class="opt">A) 4</div>
+            <div class="opt opt-b">B) 6</div>
+            <div class="opt">C) 8</div>
+            <div class="opt">D) 10</div>
+          </div>
+        </div>
+        <div>
+          <div class="work-area">İşlem Alanı:</div>
+          <div class="solution-box">
+            <strong>Çözüm:</strong> 3k + 5k = 8k = 24 => k = 3. Erkek: 15, Kız: 9. Fark: 15 - 9 = <strong>6</strong> (B şıkkı).
+          </div>
+        </div>
+      </div>
+
+      <!-- Soru 15 -->
+      <div class="question-card">
+        <div>
+          <div class="q-header">
+            <span class="q-badge">Soru 15</span>
+            <span class="q-tag">Birimli/Birimsiz Oran</span>
+          </div>
+          <div class="q-text">Aşağıda verilen oranlardan hangisi <strong>birimli orandır</strong>?</div>
+          <div class="options">
+            <div class="opt">A) 15 kg / 45 kg</div>
+            <div class="opt opt-b">B) 120 km / 3 saat</div>
+            <div class="opt">C) 18 cm / 2 m</div>
+            <div class="opt">D) 50 TL / 150 TL</div>
+          </div>
+        </div>
+        <div>
+          <div class="work-area">İşlem Alanı:</div>
+          <div class="solution-box">
+            <strong>Çözüm:</strong> km/saat birimleri sadeleşmez, sürat belirtir ve <strong>birimli orandır</strong> (B şıkkı).
+          </div>
+        </div>
+      </div>
+
+      <!-- Soru 16 -->
+      <div class="question-card">
+        <div>
+          <div class="q-header">
+            <span class="q-badge">Soru 16</span>
+            <span class="q-tag">Cebirsel İfadeler</span>
+          </div>
+          <div class="q-text">"Bir sayının 4 eksiğinin 3 katı" cümlesine karşılık gelen cebirsel ifade hangisidir?</div>
+          <div class="options">
+            <div class="opt">A) 3x - 4</div>
+            <div class="opt">B) 4x - 3</div>
+            <div class="opt opt-c">C) 3(x - 4)</div>
+            <div class="opt">D) 4(x - 3)</div>
+          </div>
+        </div>
+        <div>
+          <div class="work-area">İşlem Alanı:</div>
+          <div class="solution-box">
+            <strong>Çözüm:</strong> Önce 4 eksiği: (x - 4), sonra 3 katı: <strong>3(x - 4)</strong> (C şıkkı).
+          </div>
+        </div>
+      </div>
+
+      <!-- Soru 17 -->
+      <div class="question-card">
+        <div>
+          <div class="q-header">
+            <span class="q-badge">Soru 17</span>
+            <span class="q-tag">Cebirde Değer Bulma</span>
+          </div>
+          <div class="q-text">5a - 3b + 7 ifadesinin a = 4 ve b = 2 için değeri kaçtır?</div>
+          <div class="options">
+            <div class="opt">A) 15</div>
+            <div class="opt">B) 18</div>
+            <div class="opt opt-c">C) 21</div>
+            <div class="opt">D) 24</div>
+          </div>
+        </div>
+        <div>
+          <div class="work-area">İşlem Alanı:</div>
+          <div class="solution-box">
+            <strong>Çözüm:</strong> 5(4) - 3(2) + 7 = 20 - 6 + 7 = <strong>21</strong> (C şıkkı).
+          </div>
+        </div>
+      </div>
+
+      <!-- Soru 18 -->
+      <div class="question-card">
+        <div>
+          <div class="q-header">
+            <span class="q-badge">Soru 18</span>
+            <span class="q-tag">Aritmetik Ortalama</span>
+          </div>
+          <div class="q-text">70, 85, 90, 75 notlarının <strong>açıklığı</strong> ile <strong>aritmetik ortalamasının</strong> toplamı kaçtır?</div>
+          <div class="options">
+            <div class="opt">A) 95</div>
+            <div class="opt opt-b">B) 100</div>
+            <div class="opt">C) 105</div>
+            <div class="opt">D) 110</div>
+          </div>
+        </div>
+        <div>
+          <div class="work-area">İşlem Alanı:</div>
+          <div class="solution-box">
+            <strong>Çözüm:</strong> Ortalama = 320 / 4 = 80. Açıklık = 90 - 70 = 20. Toplam: 80 + 20 = <strong>100</strong> (B şıkkı).
+          </div>
+        </div>
+      </div>
+
+      <!-- Soru 19 -->
+      <div class="question-card">
+        <div>
+          <div class="q-header">
+            <span class="q-badge">Soru 19</span>
+            <span class="q-tag">Alan Hesaplama</span>
+          </div>
+          <div class="q-text">Tabanı 14 cm, yüksekliği 8 cm olan paralelkenarın alanı, tabanı 16 cm olan üçgenin alanına eşittir. Bu üçgenin yüksekliği kaç cm'dir?</div>
+          <div class="options">
+            <div class="opt">A) 7</div>
+            <div class="opt">B) 12</div>
+            <div class="opt opt-c">C) 14</div>
+            <div class="opt">D) 16</div>
+          </div>
+        </div>
+        <div>
+          <div class="work-area">İşlem Alanı:</div>
+          <div class="solution-box">
+            <strong>Çözüm:</strong> Paralelkenar = 14 × 8 = 112 cm². Üçgen = (16 × h) / 2 = 112 => 8h = 112 => h = <strong>14 cm</strong> (C şıkkı).
+          </div>
+        </div>
+      </div>
+
+      <!-- Soru 20 -->
+      <div class="question-card">
+        <div>
+          <div class="q-header">
+            <span class="q-badge">Soru 20</span>
+            <span class="q-tag">Hacim ve Sıvı Ölçüsü</span>
+          </div>
+          <div class="q-text">Ayrıtları 20 cm, 30 cm ve 50 cm olan dikdörtgenler prizması şeklindeki akvaryum kaç litre su alır? (1 dm³ = 1 L)</div>
+          <div class="options">
+            <div class="opt">A) 3</div>
+            <div class="opt opt-b">B) 30</div>
+            <div class="opt">C) 300</div>
+            <div class="opt">D) 3000</div>
+          </div>
+        </div>
+        <div>
+          <div class="work-area">İşlem Alanı:</div>
+          <div class="solution-box">
+            <strong>Çözüm:</strong> 2 dm × 3 dm × 5 dm = 30 dm³ = <strong>30 Litre</strong> (B şıkkı).
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Mini Optik Form -->
+    <div class="optical-section">
+      <div class="optical-title">📋 CEVAP KODLAMA OPTİK FORMU</div>
+      <div class="optical-grid" id="opticalGrid">
+        <!-- JS ile dolacak -->
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const answerKey = {
+      1: 'C', 2: 'A', 3: 'D', 4: 'C', 5: 'B',
+      6: 'B', 7: 'B', 8: 'A', 9: 'C', 10: 'B',
+      11: 'C', 12: 'B', 13: 'C', 14: 'B', 15: 'B',
+      16: 'C', 17: 'C', 18: 'B', 19: 'C', 20: 'B'
+    };
+
+    let showSol = false;
+    function toggleSolutions() {
+      showSol = !showSol;
+      document.body.classList.toggle('show-solutions', showSol);
+      document.getElementById('modeBtn').textContent = showSol ? "🔒 Öğrenci Moduna Geç (Çözümleri Gizle)" : "👁️ Çözümleri ve Cevapları Göster";
+      
+      // Şıklara highlight ekle/kaldır
+      for (let i = 1; i <= 20; i++) {
+        const correct = answerKey[i];
+        const card = document.querySelectorAll('.question-card')[i - 1];
+        const optEl = card.querySelector(`.opt-${correct.toLowerCase()}`);
+        if (optEl) {
+          if (showSol) {
+            optEl.classList.add('correct-answer');
+          } else {
+            optEl.classList.remove('correct-answer');
+          }
+        }
+      }
+      renderOptical();
+    }
+
+    function renderOptical() {
+      const grid = document.getElementById('opticalGrid');
+      grid.innerHTML = '';
+      for (let i = 1; i <= 20; i++) {
+        const item = document.createElement('div');
+        item.className = 'optical-item';
+        
+        const label = document.createElement('span');
+        label.style.fontWeight = '700';
+        label.textContent = (i < 10 ? '0' + i : i);
+        item.appendChild(label);
+
+        const bubbleRow = document.createElement('div');
+        bubbleRow.className = 'bubble-row';
+
+        ['A', 'B', 'C', 'D'].forEach(letter => {
+          const b = document.createElement('div');
+          b.className = 'bubble';
+          b.textContent = letter;
+          if (showSol && answerKey[i] === letter) {
+            b.classList.add('filled');
+          }
+          bubbleRow.appendChild(b);
+        });
+
+        item.appendChild(bubbleRow);
+        grid.appendChild(item);
+      }
+    }
+
+    renderOptical();
+  </script>
+</body>
+</html>
